@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NR-Key Verification | The Noirbrew Sanctuary</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/light/style.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="dark-mode auth-body">
+
+    <div class="auth-wrapper">
+        <!-- Back Link -->
+        <a href="../index.html" class="auth-back-link"><i class="ph ph-arrow-left"></i> Back to Sanctuary</a>
+
+        <div class="auth-card glass-card animate-on-scroll animate-visible">
+            <div class="auth-header text-center">
+                <div class="brand-signature-v2 animate-on-scroll animate-visible">
+                    <span class="b-noir">NOIR</span> <span class="b-brew">BREW</span>
+                </div>
+                <h1 class="Playfair">Verify Identity <span class="wave">👋</span></h1>
+                <p class="auth-subtitle">Verify your NR-Key to access private rituals and cellar logs.</p>
+            </div>
+
+            <!-- Social Auth -->
+            <div class="social-auth-grid">
+                <button class="social-btn"><i class="ph ph-google-logo"></i> Google</button>
+                <button class="social-btn"><i class="ph ph-apple-logo"></i> Apple</button>
+            </div>
+
+            <div class="auth-divider"><span>OR</span></div>
+
+            <!-- Login Form -->
+            <form class="auth-form-v2">
+                <div class="form-group-auth">
+                    <label>Designated Email Address</label>
+                    <input type="email" placeholder="curator@noirbrew.com" class="auth-field-v2" required>
+                </div>
+                <div class="form-group-auth">
+                    <label>Sanctuary Password</label>
+                    <div class="auth-password-wrapper">
+                        <input type="password" placeholder="••••••••" class="auth-field-v2" id="passwordField" required>
+                        <i class="ph ph-eye-closed" onclick="togglePassword()"></i>
+                    </div>
+                </div>
+
+                <div class="auth-secondary-actions">
+                    <label class="remember-me">
+                        <input type="checkbox"> <span>Stay Synchronized</span>
+                    </label>
+                    <a href="#" class="gold-link">Forgotten Protocol?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-pill">Verify Identity</button>
+            </form>
+
+            <div class="auth-footer text-center">
+                <p>New to the Sanctuary? <a href="signup.html" class="gold-link">Create Discovery Account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function togglePassword() {
+            const field = document.getElementById('passwordField');
+            const icon = event.target;
+            if (field.type === 'password') {
+                field.type = 'text';
+                icon.classList.replace('ph-eye-closed', 'ph-eye');
+            } else {
+                field.type = 'password';
+                icon.classList.replace('ph-eye', 'ph-eye-closed');
+            }
+        }
+    </script>
+</body>
+</html>

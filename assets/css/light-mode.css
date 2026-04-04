@@ -1,0 +1,168 @@
+/* 
+  Noirbrew - Universal Semantic Theme Protocol 
+  -------------------------------------------
+  SINGLE SOURCE OF TRUTH for atmospheric inversion.
+  RE-INFORCED: Theme-aware contrast for container boundaries (Borders).
+  RE-INFORCED: Map Overlay Isolation & Hero Subpage Restoration.
+  FIXED: Eradicated 'Double Outline' conflict by prioritizing clean luxury borders.
+*/
+
+:root {
+    /* DEFAULT (DARK) ATMOSPHERE */
+    --bg-primary: #0A0A0A;    
+    --bg-secondary: #0F0F0F;  
+    --bg-elevated: #141414;   
+    
+    --text-primary: #EDEDED;   
+    --text-secondary: #A1A1A1; 
+    --text-muted: #6B6B6B;     
+    
+    /* 💎 Glassmorphism & Borders (Contrast-Aware) */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08); 
+    --card-shadow: rgba(0, 0, 0, 0.4);
+
+    --primary-gold: #D4AF37;
+    --primary-gold-dark: #B8962D;
+    
+    --card-bg: var(--bg-secondary);
+}
+
+/* 🌗 LIGHT ATMOSPHERE INVERSION */
+body.light-mode {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9f9f9;
+    --bg-elevated: #f0f0f0;
+
+    --text-primary: #0a0a0a;   
+    --text-secondary: #444444; 
+    --text-muted: #888888;     
+
+    /* 💎 Glassmorphism & Borders: The Inversion Fix */
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-border: rgba(0, 0, 0, 0.08); 
+    --card-shadow: rgba(0, 0, 0, 0.05);
+    
+    --card-bg: var(--bg-secondary);
+}
+
+/* 🧱 THE ARCHITECTURAL RULES */
+body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* 🏛️ Boundary Preservation Service */
+.card, .feature-card-v2, .glass-card, .reservation-card, .env-floating-card, 
+.inquiry-form-v4, .path-card-v4, .session-card, .category-grid-v4, .modal-window,
+.blog-featured-post, .floating-info-card, .sidebar-card, .form-container, .inquiry-section,
+.about-story, .story-visual, .ritual-img-outer, .format-card, .step-card-v2, .tax-col, .tea-card-v3,
+.gate-card-v3, .interactive-map-ribbon, .ribbon-content-v5, .channel-v4, .protocol-box-v4 {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+    
+    /* FIX: Prioritizing a single, clean 'Gold-Neutral' border for luxury definition */
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: 0 15px 45px var(--card-shadow) !important; /* Soft shadow ONLY, no secondary outline */
+    border-radius: 4px;
+}
+
+/* Strip hardcoded dark gradients from feature cards in Light Mode */
+body.light-mode .feature-card-v2 {
+    background: var(--card-bg) !important;
+}
+
+/* 🌑 FLOATING CARD DARK SURFACE (Hero-embedded cards stay dark) */
+.about-hero .floating-card,
+.hero .floating-card,
+.meditation-hero .floating-card {
+    background-color: rgba(15, 15, 15, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+}
+.about-hero .floating-card *,
+.hero .floating-card *,
+.meditation-hero .floating-card * {
+    color: #ffffff !important;
+}
+.about-hero .card-icon,
+.hero .card-icon,
+.meditation-hero .card-icon {
+    background: rgba(212, 175, 55, 0.1) !important;
+}
+.about-hero .card-icon i,
+.hero .card-icon i,
+.meditation-hero .card-icon i {
+    color: var(--primary-gold) !important;
+}
+.about-hero .card-info h5 {
+    color: var(--primary-gold) !important;
+}
+
+/* 🖼️ CTA VISUAL FIX (About page 'Your Moment Awaits') */
+.cta-glow {
+    display: none !important;
+}
+.cta-img-blend {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+/* 🖋️ Typographic Hardening */
+h1, h2, h3, h4, .philosophy-title, .ritual-h2, .stat-val, .tel-text {
+    color: var(--text-primary) !important;
+}
+
+p, .philosophy-text, .section-desc, .stat-label, .max-600, .sidebar-p { 
+    color: var(--text-secondary) !important; 
+    opacity: 1 !important; 
+}
+
+.text-muted, .section-subtitle, .cta-micro-text, .section-tag, .gate-coords, .gate-status, .c-label, .p-step-v4 { 
+    color: var(--text-muted) !important; 
+    opacity: 1 !important; 
+}
+
+/* 🎭 MIDNIGHT ISOLATION (Fixed Dark Regions in Light Mode) */
+.hero, .hero-v2, .meditation-hero, .reservation-hero, .tea-hero, .about-hero, .contact-hero, 
+.map-overlay-layer, .live-telemetry, .aid-item, .meditation-cta-v3, .lineage-section, .pro-floating-card {
+    background-color: #0d0d0d !important;
+}
+
+/* Force White for Midnight Isolation elements */
+.hero *, .hero-v2 *, .meditation-hero *, .reservation-hero *, .tea-hero *, .about-hero *, .contact-hero *, 
+.live-telemetry *, .tel-text, .aid-item *, .meditation-cta-v3 *, .lineage-section *, .pro-floating-card * {
+    color: #ffffff !important;
+}
+
+/* 🔘 BUTTON & LINK RESOLUTION */
+.btn-secondary {
+    border: 1px solid var(--text-primary) !important;
+    color: var(--text-primary) !important;
+    background: transparent !important;
+}
+.hero .btn-secondary, .about-hero .btn-secondary, .meditation-hero .btn-secondary, .contact-hero .btn-secondary {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Spectral Exceptions for Icons and Accents */
+.hero i, .aid-item i, .meditation-cta-v3 i, .lineage-section i,
+.hero .ph, .aid-item .ph, .meditation-cta-v3 .ph, .lineage-section .ph {
+    color: #ffffff !important;
+}
+
+.gold-text, .primary-gold, .stat-val, .metric-num, .m-val, .c-val,
+.hero .gold-text, .aid-item .gold-text, .meditation-cta-v3 .gold-text, .lineage-section .gold-text, .pro-floating-card .stat-num { 
+    color: var(--primary-gold) !important; 
+}
+i, .ph { color: var(--text-primary) !important; }
+.hero i, .live-telemetry i { color: #ffffff !important; }

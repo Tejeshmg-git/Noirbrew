@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Lost | The Noirbrew Sanctuary</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/light-mode.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <script>
+        // Theme persistence: read saved preference before paint
+        (function() {
+            var theme = localStorage.getItem('noir-theme');
+            if (theme === 'light') document.documentElement.classList.add('light-mode-pending');
+        })();
+    </script>
+</head>
+<body class="error-body">
+    <script>
+        // Apply theme class to body after DOM ready
+        (function() {
+            var theme = localStorage.getItem('noir-theme');
+            if (theme === 'light') document.body.classList.add('light-mode');
+        })();
+    </script>
+
+    <main class="error-container">
+        <div class="error-content text-center">
+            <div class="brand-signature-v2 animate-on-scroll animate-visible" style="margin-bottom: 60px;">
+                <span class="b-noir">NOIR</span> <span class="b-brew">BREW</span>
+            </div>
+            <h1 class="error-code Playfair">404</h1>
+            <h2 class="error-title">The Path is <span class="gold-text">Lost</span></h2>
+            <p class="error-desc">The specific ritual you are seeking has drifted into the void. Allow us to guide you back to the narrative flow.</p>
+            
+            <div class="error-actions">
+                <a href="../index.html" class="btn btn-primary btn-pill">Return to Sanctuary</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/js/components/footer.js"></script>
+</body>
+</html>

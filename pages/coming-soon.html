@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wait for Stillness | Noirbrew</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/light/style.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/light-mode.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
+    <script>
+        // Theme persistence: read saved preference before paint
+        (function() {
+            var theme = localStorage.getItem('noir-theme');
+            if (theme === 'light') document.documentElement.classList.add('light-mode-pending');
+        })();
+    </script>
+</head>
+<body class="coming-soon-body">
+    <script>
+        // Apply theme class to body after DOM ready
+        (function() {
+            var theme = localStorage.getItem('noir-theme');
+            if (theme === 'light') document.body.classList.add('light-mode');
+        })();
+    </script>
+
+    <a href="../index.html" class="cs-back-link animate-on-scroll animate-visible"><i class="ph ph-arrow-left"></i> Back to Sanctuary</a>
+
+    <main class="coming-soon-container text-center">
+        <!-- Logo -->
+        <div class="cs-logo-group animate-on-scroll animate-visible">
+            <div class="brand-signature-v2">
+                <span class="b-noir">NOIR</span> <span class="b-brew">BREW</span>
+            </div>
+        </div>
+
+        <h1 class="cs-heading Playfair animate-on-scroll animate-visible" style="transition-delay: 0.1s;">The Silence is <span class="gold-text">Coming Soon</span></h1>
+        <p class="cs-desc animate-on-scroll animate-visible" style="transition-delay: 0.2s;">We are meticulously calibrating the digital sanctuary to provide a sensory experience that redefines architectural stillness. Stay tuned for our inaugural ritual launch.</p>
+
+        <!-- Countdown Timer -->
+        <div class="cs-timer animate-on-scroll animate-visible" style="transition-delay: 0.3s;">
+            <div class="timer-box glass-card">
+                <span id="days" class="timer-val gold-text">29</span>
+                <span class="timer-label">Days</span>
+            </div>
+            <div class="timer-box glass-card">
+                <span id="hours" class="timer-val gold-text">23</span>
+                <span class="timer-label">Hours</span>
+            </div>
+            <div class="timer-box glass-card">
+                <span id="minutes" class="timer-val gold-text">59</span>
+                <span class="timer-label">Minutes</span>
+            </div>
+            <div class="timer-box glass-card">
+                <span id="seconds" class="timer-val gold-text">55</span>
+                <span class="timer-label">Seconds</span>
+            </div>
+        </div>
+
+        <!-- Notify Form -->
+        <div class="cs-notify-form glass-card animate-on-scroll animate-visible" style="transition-delay: 0.4s;">
+            <form id="notifyForm" class="notify-input-group">
+                <input type="email" placeholder="Preferred Correspondence Address" class="cs-input" required>
+                <button type="submit" class="btn btn-primary btn-pill">Notify Me</button>
+            </form>
+        </div>
+
+        <!-- Social Channels -->
+        <div class="cs-socials animate-on-scroll animate-visible" style="transition-delay: 0.5s;">
+            <a href="#" class="cs-s-icon"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" class="cs-s-icon"><i class="ph ph-youtube-logo"></i></a>
+            <a href="#" class="cs-s-icon"><i class="ph ph-x-logo"></i></a>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Simple Countdown logic
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 29); // 29 days from now
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h;
+            document.getElementById("minutes").innerText = m;
+            document.getElementById("seconds").innerText = s;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
