@@ -2961,6 +2961,10 @@ p {
         grid-template-columns: 1fr;
         gap: var(--space-48);
     }
+
+    .about-story .dual-split {
+        grid-template-columns: 1fr !important;
+    }
     
     .story-content { padding-right: 0; }
     

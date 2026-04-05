@@ -1346,8 +1346,181 @@
     .ribbon-header { flex-direction: column; align-items: flex-start; gap: 24px; }
     .intent-ribbon { flex-direction: column; align-items: flex-start; gap: 16px; }
     .calibration-ribbon { padding: 48px 32px; }
+    .ribbon-inputs-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .ribbon-action {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
 }
 
+@media (max-width: 560px) {
+    /* Calibration ribbon compact */
+    .calibration-ribbon {
+        padding: 28px 16px !important;
+        gap: 32px !important;
+    }
+
+    /* Intent chips: wrap to fit */
+    .intent-group-v3 {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+    .chip-content {
+        padding: 10px 16px !important;
+        font-size: 11px !important;
+    }
+
+    /* Ribbon action: stack vertically, full width */
+    .ribbon-action {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100%;
+    }
+    .ribbon-action .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .action-micro {
+        font-size: 9px !important;
+        text-align: center;
+    }
+
+    /* Inputs container: single column, remove extra gap */
+    .ribbon-inputs-container {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    /* Sidebar compact */
+    .ribbon-sidebar-v2 {
+        padding: 24px !important;
+    }
+    .ribbon-sidebar-v2 h4 {
+        font-size: 16px !important;
+    }
+
+    /* Form inputs compact */
+    .noir-input-v3 {
+        padding: 14px 16px !important;
+        font-size: 13px !important;
+    }
+
+    /* Ribbon header text */
+    .ribbon-header .ritual-h2 {
+        font-size: 22px !important;
+    }
+    .ritual-p-compact {
+        font-size: 12px !important;
+    }
+
+    /* Ribbon inclusions */
+    .ribbon-inclusions-v2 {
+        gap: 16px !important;
+    }
+
+    /* Selection grid */
+    .selection-grid-v2 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .path-card-v2 {
+        padding: 28px 20px !important;
+    }
+    .path-status-badge {
+        position: static !important;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    /* Sanctuary Creed: remove extra space */
+    .etiquette-layout-v3 {
+        gap: 32px !important;
+    }
+    .eti-visual-v3 {
+        height: 250px !important;
+    }
+    .eti-list-v3 {
+        margin-top: 28px !important;
+        gap: 20px !important;
+    }
+    .eti-list-v3 li {
+        font-size: 13px !important;
+    }
+
+    /* Noir Access section: fix text overflow */
+    .access-right-v4 {
+        padding: 28px 16px !important;
+    }
+    .access-right-v4 .ritual-h2 {
+        font-size: 22px !important;
+    }
+    .access-right-v4 .ritual-p {
+        font-size: 13px !important;
+        line-height: 1.6;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    .access-meta-v4 {
+        flex-direction: column !important;
+        gap: 16px !important;
+        margin-top: 28px !important;
+    }
+    .meta-bit {
+        gap: 10px !important;
+        font-size: 10px !important;
+        letter-spacing: 1px !important;
+    }
+    .access-left-v4 {
+        min-height: 280px !important;
+    }
+
+    /* Reduce section padding across all reservation page sections */
+    .selection-section.section-padding,
+    .calibration-form-section.section-padding,
+    .concierge-editorial.section-padding,
+    .sensory-strip-section.section-padding,
+    .etiquette-section.section-padding,
+    .noir-access-section.section-padding {
+        padding: 48px 0 !important;
+    }
+
+    /* Tighten reservation hero */
+    .reservation-hero {
+        padding: 32px 0 !important;
+    }
+
+    /* Reduce footer gap */
+    .footer {
+        margin-top: 60px !important;
+    }
+
+    /* Concierge features: stack vertically */
+    .concierge-features {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+        margin-top: 32px !important;
+    }
+    .feat-num {
+        font-size: 26px !important;
+    }
+    .feat-label {
+        font-size: 10px !important;
+    }
+
+    /* Global: reduce ALL section-padding at 320px */
+    .section-padding {
+        padding: 48px 0 !important;
+    }
+    .section-padding-large {
+        padding: 56px 0 !important;
+    }
+}
 .concierge-features { display: flex; justify-content: center; gap: 48px; margin-top: 56px; }
 
 .feat-item { display: flex; align-items: flex-start; gap: 16px; }
@@ -2249,9 +2422,14 @@
 /* === Global Page Mobile Refinements === */
 @media (max-width: 768px) {
     /* Ensure all structural grids correctly stack */
-    .wellbeing-grid, .social-auth-grid, .tea-card-grid, .sourcing-grid {
+    .wellbeing-grid, .social-auth-grid, .tea-card-grid, .sourcing-grid,
+    .aids-grid-v2, .protocol-staircase, .sci-grid, .format-grid {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
+    }
+
+    .protocol-staircase .step-card-v2 {
+        margin-top: 0 !important;
     }
     
     /* Ensure flex wraps or stacks for metrics & perks */
@@ -2442,5 +2620,105 @@
 
     .metric-label {
         font-size: 10px !important;
+    }
+
+    /* === FIX: Aids of the Absence gallery overflow at 320px === */
+    .aids-grid-v2 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin-top: 40px !important;
+    }
+
+    .aid-item {
+        height: 280px !important;
+        padding: 28px !important;
+    }
+
+    .aid-text h4 {
+        font-size: 18px !important;
+    }
+
+    .aid-text p {
+        font-size: 13px !important;
+        line-height: 1.6;
+    }
+}
+
+/* === Contact Page - Small Mobile (320px) Fixes === */
+@media (max-width: 560px) {
+    /* Inquiry section: reduce gap and fix text overflow */
+    .dual-split-v4 {
+        gap: 32px !important;
+    }
+
+    .inquiry-content-v4 .ritual-h2 {
+        font-size: 22px !important;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .inquiry-content-v4 .ritual-p {
+        font-size: 13px !important;
+    }
+
+    /* Category pills: compact for 320px */
+    .category-grid-v4 {
+        gap: 8px !important;
+        margin-top: 28px !important;
+    }
+    .cat-pill {
+        padding: 10px 14px !important;
+        font-size: 11px !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* Inquiry form compact */
+    .inquiry-form-v4 {
+        padding: 28px 16px !important;
+    }
+    .form-row-v3 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Quietude metrics */
+    .quietude-metrics {
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-top: 32px !important;
+    }
+    .quietude-ribbon {
+        padding: 32px 16px !important;
+    }
+    .quietude-ribbon .ribbon-content-v5 {
+        padding: 0 !important;
+    }
+    .quietude-ribbon h2 {
+        font-size: 22px !important;
+    }
+    .m-val {
+        font-size: 26px !important;
+    }
+
+    /* Concierge channels */
+    .horizontal-ribbon-v4 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .channel-v4 {
+        padding: 24px 16px !important;
+    }
+    .c-val {
+        font-size: 12px !important;
+        word-break: break-all;
+    }
+
+    /* Protocol grid */
+    .protocol-grid-v4 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .protocol-box-v4 {
+        padding: 28px 20px !important;
     }
 }
