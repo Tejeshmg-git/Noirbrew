@@ -23,7 +23,7 @@ class SiteHeader extends HTMLElement {
                     <nav class="nav-links">
                         <ul>
                             <li class="has-dropdown">
-                                <a href="${homeV1Link}" class="dropdown-trigger">Home <i class="ph ph-caret-down"></i></a>
+                                <a href="javascript:void(0)" class="dropdown-trigger">Home <i class="ph ph-caret-down"></i></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="${homeV1Link}">Home V1 - Classic</a></li>
                                     <li><a href="${homeV2Link}">Home V2 - Premium</a></li>
@@ -34,6 +34,8 @@ class SiteHeader extends HTMLElement {
                             <li><a href="${meditationLink}">Meditation</a></li>
                             <li><a href="${reservationLink}">Reservation</a></li>
                             <li><a href="${contactLink}">Contact</a></li>
+                            <li class="mobile-only-btn"><a href="${teaLink}" class="btn btn-secondary" style="margin-top:16px;">Explore Tea</a></li>
+                            <li class="mobile-only-btn"><a href="${reservationLink}" class="btn btn-primary">Book Now</a></li>
                         </ul>
                     </nav>
 
@@ -167,11 +169,11 @@ class SiteHeader extends HTMLElement {
                 transition: color 0.3s ease;
             }
 
-            .nav-links a.active {
+            .nav-links a.active:not(.btn) {
                 color: var(--primary-gold) !important;
                 position: relative;
             }
-            .nav-links a.active::after {
+            .nav-links a.active:not(.btn)::after {
                 content: "";
                 position: absolute;
                 bottom: -5px; left: 0;

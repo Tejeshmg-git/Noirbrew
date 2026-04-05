@@ -1348,7 +1348,7 @@
     .calibration-ribbon { padding: 48px 32px; }
 }
 
-.concierge-features { display: flex; gap: 48px; margin-top: 56px; }
+.concierge-features { display: flex; justify-content: center; gap: 48px; margin-top: 56px; }
 
 .feat-item { display: flex; align-items: flex-start; gap: 16px; }
 
@@ -1430,21 +1430,29 @@
     .sens-cards-v4 { grid-template-columns: 1fr; }
 }
 
-.etiquette-layout-v3 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.etiquette-layout-v3 { display: grid; grid-template-columns: 1fr; gap: 80px; align-items: center; justify-items: center; text-align: center; }
 
-.eti-list-v3 { list-style: none; margin-top: 48px; display: flex; flex-direction: column; gap: 24px; }
+.eti-text-v3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+}
 
-.eti-list-v3 li { font-size: 15px; color: var(--text-secondary); position: relative; padding-left: 32px; }
+.eti-list-v3 { list-style: none; margin-top: 48px; display: flex; flex-direction: column; gap: 32px; align-items: center; }
+
+.eti-list-v3 li { font-size: 15px; color: var(--text-secondary); position: relative; padding-left: 0; display: flex; flex-direction: column; align-items: center; }
 
 .eti-list-v3 li::before {
     content: "";
-    position: absolute;
-    left: 0; top: 8px;
-    width: 12px; height: 1px;
+    position: relative;
+    width: 24px; height: 1px;
     background: var(--primary-gold);
+    margin-bottom: 12px;
+    top: 0; left: 0;
 }
 
-.eti-visual-v3 { position: relative; height: 400px; }
+.eti-visual-v3 { position: relative; height: 400px; width: 100%; max-width: 600px; }
 
 
 
@@ -1586,9 +1594,16 @@
     border-radius: 20px;
 }
 
-.dual-split-v4 { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: flex-start; }
+.dual-split-v4 { display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center; justify-items: center; text-align: center; }
 
-.category-grid-v4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 48px; }
+.inquiry-content-v4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+}
+
+.category-grid-v4 { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
 
 .cat-pill { 
     padding: 14px 20px; 
@@ -1603,7 +1618,7 @@
 
 .cat-pill.active { border-color: var(--primary-gold); color: var(--primary-gold); }
 
-.inquiry-form-v4 { padding: 56px; }
+.inquiry-form-v4 { padding: 56px; width: 100%; max-width: 700px; }
 
 .contact-form-v3 { display: flex; flex-direction: column; gap: 32px; }
 
@@ -2021,6 +2036,9 @@
     margin-top: 64px;
     position: relative;
     padding-left: 48px;
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ritual-track-line {
@@ -2226,4 +2244,203 @@
     .hero-micro-specs { justify-content: center; flex-wrap: wrap; }
     .hero-ctas-v2 { justify-content: center; }
     .pro-floating-card { display: none; }
+}
+
+/* === Global Page Mobile Refinements === */
+@media (max-width: 768px) {
+    /* Ensure all structural grids correctly stack */
+    .wellbeing-grid, .social-auth-grid, .tea-card-grid, .sourcing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+    
+    /* Ensure flex wraps or stacks for metrics & perks */
+    .origin-metrics, .sourcing-stats, .silence-perks, .cta-perks-v4 {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 24px !important;
+    }
+
+    /* Text alignment safety */
+    .split-content, .sourcing-intro, .text-group, .text-group-left {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    /* Rebalance card paddings */
+    .taxonomy-card {
+        padding: 40px 24px !important;
+    }
+    .tea-cta-card {
+        padding: 48px 24px !important;
+    }
+    .tea-card-content {
+        padding: 32px 24px !important;
+    }
+    .ritual-offset-frame {
+        margin: 0 !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Constraints for alignment */
+    .vessel-floating-img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Tea Page - Small Mobile (320px) Fixes */
+@media (max-width: 560px) {
+    /* Hero: Tea Reconstruction */
+    .pro-hero-v2 {
+        min-height: auto;
+        padding: 130px 0 40px;
+    }
+    .pro-hero-layout {
+        gap: 32px;
+    }
+    .h1-top {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+    .h1-main {
+        font-size: 28px !important;
+    }
+    .pro-h1 {
+        margin: 16px 0;
+    }
+    .tea-hero .hero-subtext {
+        font-size: 14px !important;
+        line-height: 1.6;
+        max-width: 100%;
+        opacity: 0.85;
+    }
+    .hero-micro-specs {
+        flex-direction: column;
+        gap: 8px;
+        margin: 20px 0;
+        font-size: 10px !important;
+    }
+    .hero-micro-specs .dot-sep {
+        display: none;
+    }
+    .hero-micro-specs span {
+        white-space: normal;
+        font-size: 10px;
+    }
+    .hero-ctas-v2 {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 24px;
+    }
+    .hero-ctas-v2 .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    /* Hide scroll hint on small mobile - it overlaps content */
+    .pro-scroll-hint {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    .tea-hero-glow {
+        display: none !important;
+    }
+
+    /* Alchemy Section (Section 3) */
+    .alchemy-container {
+        gap: 40px !important;
+    }
+    .alchemy-ritual-track {
+        margin-top: 40px;
+        padding-left: 40px;
+    }
+    .milestone-dot {
+        left: -40px;
+        width: 26px;
+        height: 26px;
+        font-size: 9px;
+    }
+    .milestone-content h5 {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+    .milestone-content p {
+        font-size: 12px;
+        max-width: 100%;
+    }
+    .ritual-vessel-preview {
+        padding: 32px;
+    }
+    .vessel-specs {
+        margin-top: 24px;
+        gap: 16px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    /* Sensory Guide (Section 5) */
+    .sensory-guide .dual-split {
+        gap: 40px;
+    }
+    .sensory-grid {
+        margin-top: 32px;
+        gap: 28px;
+    }
+    .sensory-item {
+        padding-left: 20px;
+    }
+    .sensory-item h5 {
+        font-size: 14px;
+    }
+    .sensory-item p {
+        font-size: 13px;
+    }
+
+    /* === FIX: Dual-split align-center & Sensory Guide text overflow at 320px === */
+    .dual-split.align-center {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+
+    .dual-split.align-center .split-content,
+    .dual-split.align-center .split-visual {
+        max-width: 100% !important;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .sensory-guide .ritual-h2,
+    .origin-section .ritual-h2 {
+        font-size: 22px !important;
+        line-height: 1.2;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .sensory-guide .ritual-p,
+    .origin-section .ritual-p {
+        font-size: 13px !important;
+        line-height: 1.6;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .origin-metrics {
+        gap: 32px !important;
+        margin-top: 32px !important;
+        padding-top: 24px !important;
+    }
+
+    .metric-num {
+        font-size: 28px !important;
+    }
+
+    .metric-label {
+        font-size: 10px !important;
+    }
 }
