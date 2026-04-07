@@ -336,6 +336,13 @@ p {
 }
 .logo .brew { color: var(--primary-gold); }
 
+.nav-logo-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
 /* Nav Links as a Unified Group */
 .nav-links ul {
     display: flex;
@@ -486,6 +493,10 @@ p {
 /* Responsive Utilities */
 @media (max-width: 1024px) {
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .logo{
+            font-size: 20px;
+
+    }
 }
 @media (max-width: 768px) {
     .grid-2 { grid-template-columns: 1fr; }
@@ -1405,14 +1416,17 @@ p {
     margin-bottom: var(--gap-action);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the list items horizontally */
+    align-items: flex-start; /* Left-align the list items */
     gap: 12px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .experience-highlights li {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content within list item */
+    justify-content: flex-start; /* Left-align content within list item */
     gap: 12px;
     font-size: 14px;
     color: var(--text-secondary);
@@ -1422,9 +1436,9 @@ p {
 .experience-highlights .dot {
     width: 6px;
     height: 6px;
+    min-width: 6px;
     background-color: var(--primary-gold);
     border-radius: 50%;
-    color: var(--text-secondary);
 }
 
 .v2-actions-group {
