@@ -19,7 +19,7 @@ class SiteHeader extends HTMLElement {
             <header class="header transparent">
                 <div class="container nav-container">
                     <a href="${homeV1Link}" class="logo">
-                        <img src="${base}assets/images/favicon.svg" alt="Noirbrew Logo" class="nav-logo-icon">
+                        <img src="${base}assets/images/logo-icon.svg" alt="Noirbrew Logo" class="nav-logo-icon">
                         <span class="noir">NOIR</span><span class="brew">BREW</span>
                     </a>
                     

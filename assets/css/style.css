@@ -45,6 +45,8 @@
 }
 
 @media (max-width: 768px) {
+
+    
     :root {
         --section-padding: 60px;
         --section-padding-large: 80px;
@@ -500,6 +502,7 @@ p {
     }
 }
 @media (max-width: 768px) {
+    
     .grid-2 { grid-template-columns: 1fr; }
     .grid-3 { grid-template-columns: 1fr; }
 }
@@ -1192,7 +1195,7 @@ p {
 @media (max-width: 950px) {
     .hero-v2-split {
         grid-template-columns: 1fr;
-        padding: 120px 0 80px;
+        padding: 0px !important;
         text-align: center;
         gap: var(--space-64);
     }

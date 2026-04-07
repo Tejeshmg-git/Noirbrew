@@ -617,6 +617,7 @@
 }
 
 @media (max-width: 768px) {
+    
  .tea-cta-card { padding: 56px 32px; }
  .cta-title-v4 { font-size: 36px; }
  .cta-perks-v4 { flex-direction: column; gap: 24px; align-items: center; }
@@ -2547,6 +2548,17 @@ body.light-mode .auth-toggle-btn .light-icon {
 
 /* === Global Page Mobile Refinements === */
 @media (max-width: 768px) {
+    .guided-entry-hint {
+    position: absolute;
+    bottom: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    z-index: 10;
+}
     /* Ensure all structural grids correctly stack */
     .wellbeing-grid, .social-auth-grid, .tea-card-grid, .sourcing-grid,
     .aids-grid-v2, .protocol-staircase, .sci-grid, .format-grid {
@@ -2775,6 +2787,18 @@ body.light-mode .auth-toggle-btn .light-icon {
 
 /* === Contact Page - Small Mobile (320px) Fixes === */
 @media (max-width: 560px) {
+
+    .guided-entry-hint {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    z-index: 10;
+    }
     /* Contact hero: reduce height on mobile */
     .contact-hero {
         min-height: 40vh !important;
@@ -2863,4 +2887,10 @@ body.light-mode .auth-toggle-btn .light-icon {
     .protocol-box-v4 {
         padding: 28px 20px !important;
     }
+}
+
+@media (max-width: 560px) {
+.entry-text {
+    font-size: 6px;
+}
 }
