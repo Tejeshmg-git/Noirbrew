@@ -44,6 +44,21 @@
     --text-secondary: var(--text-secondary-light);
 }
 
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 60px;
+        --section-padding-large: 80px;
+        --footer-gap: 60px;
+    }
+}
+@media (max-width: 560px) {
+    :root {
+        --section-padding: 40px;
+        --section-padding-large: 60px;
+        --footer-gap: 40px;
+    }
+}
+
 /* Base Setup */
 * {
     margin: 0;
@@ -414,12 +429,21 @@ p {
 .header-ctas {
     display: flex;
     align-items: center;
-    gap: 8px; /* Tightly grouped actions */
+        gap: 28px;
+}
+
+.header-ctas .icon-btn {
+    margin-right: 0;
 }
 
 .header-ctas .btn {
-    padding: 8px 14px; /* More compact to prevent cut off */
-    font-size: 13px; /* Slightly smaller text */
+    padding: 8px 18px;
+    font-size: 13px;
+    margin-left: 4px; /* Extra breathing room after icon buttons */
+}
+
+.header-ctas .btn + .btn {
+    margin-left: 0; /* No extra margin between adjacent buttons */
 }
 
 .icon-btn {
@@ -472,23 +496,13 @@ p {
 .footer {
     background-color: var(--section-dark);
     color: var(--text-primary);
-    padding: 120px 0 0; /* Deep luxury padding */
-    margin-top: 120px; /* Strong separation from preceding sections */
+    padding: var(--footer-gap) 0 0; /* Deep luxury padding */
+    margin-top: var(--footer-gap); /* Strong separation from preceding sections */
     border-top: 1px solid rgba(255, 255, 255, 0.03);
     position: relative;
 }
 
-/* Subtle Top Depth Shadow */
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
-    pointer-events: none;
-}
+/* Top shadow removed */
 
 .footer-grid {
     display: grid;
@@ -592,8 +606,8 @@ p {
 }
 
 .newsletter-form input {
-    background-color: var(--bg-primary); /* Darker, more premium input area */
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.03); /* Subtle contrast to separate from footer background */
+    border: 1px solid #FFFFFF; /* Pure white border as requested */
     padding: 14px 20px;
     border-radius: 4px; /* Unified radius */
     color: #FFF;
@@ -1333,6 +1347,20 @@ p {
     gap: var(--grid-gap);
 }
 
+.dual-split .split-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.split-content .ritual-h2,
+.split-content .ritual-p {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .split-img {
     width: 100%;
     aspect-ratio: 4/5;
@@ -1349,11 +1377,17 @@ p {
 
 .ritual-content {
     max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .ritual-h2 {
     font-size: var(--fs-h2);
     margin-bottom: var(--gap-heading);
+    text-align: center;
 }
 
 .ritual-p {
@@ -1371,12 +1405,14 @@ p {
     margin-bottom: var(--gap-action);
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center the list items horizontally */
     gap: 12px;
 }
 
 .experience-highlights li {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center content within list item */
     gap: 12px;
     font-size: 14px;
     color: var(--text-secondary);
@@ -1396,7 +1432,7 @@ p {
     align-items: center;
     gap: 40px;
     margin-bottom: var(--gap-action); /* Locked to final spacing system */
-    justify-content: flex-start !important;
+    justify-content: center !important; /* Force center alignment */
 }
 
 .link-with-arrow {
@@ -1419,9 +1455,12 @@ p {
     font-size: 18px;
     color: var(--text-secondary);
     color: var(--text-secondary);
-    border-left: 1px solid rgba(212,175,55,0.2);
-    padding-left: 24px;
-    margin-top: 64px; /* Deep breath of space above the quote */
+    border-top: 1px solid rgba(212,175,55,0.2);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+    padding: 16px 0;
+    margin-top: 48px; /* Deep breath of space above the quote */
+    text-align: center;
+    width: 100%;
 }
 
 /* Image Mask & Effects */
@@ -1464,14 +1503,15 @@ p {
 .session-card {
     display: flex;
     flex-direction: column;
+    text-align: center; /* Align properly to centre */
 }
 
 .session-img-placeholder {
     width: 100%;
     aspect-ratio: 4/5;
     background-color: #161616;
-    margin-bottom: 24px; /* Essential breathing room below the image */
-    border-radius: 4px;
+    margin-bottom: 24px;
+    border-radius: 4px 4px 0 0; /* Flat bottom to connect with text area */
     transition: transform 0.5s ease;
     overflow: hidden;
 }
@@ -1481,13 +1521,15 @@ p {
     color: var(--primary-gold);
     margin-bottom: 12px;
     font-family: 'Playfair Display', serif;
+    padding: 0 24px; /* Padding need fix */
 }
 
 .session-card .card-desc {
     font-size: var(--fs-body);
     color: var(--text-secondary);
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 32px 0; /* Bottom spacing to lift text from card bottom edge */
+    padding: 0 24px; /* Padding need fix */
 }
 
 /* Minimal Blog List Layout */
@@ -1667,6 +1709,10 @@ p {
     color: var(--primary-gold);
 }
 
+.featured-info {
+    padding: 20px; /* Added inner padding to prevent text hugging the left edge */
+}
+
 .featured-info .link-with-arrow {
     margin-top: var(--space-24);
     opacity: 0.8;
@@ -1688,7 +1734,7 @@ p {
 }
 
 .side-post {
-    padding-bottom: var(--space-40);
+    padding: 20px; /* Added left and right padding to fix text hugging the edge */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1743,7 +1789,38 @@ p {
 @media (max-width: 991px) {
     .blog-editorial-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 64px;
+        text-align: center;
+    }
+    
+    .blog-header-v2 {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    
+    .blog-header-v2 .text-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .featured-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .featured-p {
+        margin-inline: auto;
+    }
+    
+    .side-post {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
 
@@ -1790,13 +1867,14 @@ p {
 
 .cta-split-grid {
     display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 80px; /* Locked editorial gap */
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
     align-items: center;
 }
 
 .cta-text-group {
     text-align: left;
+    max-width: 600px;
 }
 
 .cta-v2-h2 {
@@ -1811,19 +1889,62 @@ p {
     line-height: 1.8;
 }
 
+/* Premium Floating Card for Actions */
 .cta-action-hub {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.15); /* Subtle gold glass border */
+    padding: 48px;
+    border-radius: 12px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    gap: 32px;
+}
+
+.cta-v2-trust-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.trust-item {
+    display: flex;
     align-items: center;
-    gap: 48px; /* Balanced space between trust list and the button */
+    gap: 16px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trust-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.trust-item i {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-gold);
 }
 
 .cta-v2-action {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    align-items: stretch;
+    width: 100%;
+    gap: 16px;
+    margin-top: 16px;
 }
+
+.cta-v2-action .btn-xl {
+    width: 100%;
+}
+
+
 
 .btn-pill {
     border-radius: 50px !important;
@@ -1850,28 +1971,6 @@ p {
     color: var(--text-secondary);
     color: var(--text-muted);
     letter-spacing: 0.5px;
-}
-
-.cta-v2-trust-horizontal {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-}
-
-.trust-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    opacity: 0.8;
-}
-
-.trust-item i {
-    width: 16px;
-    height: 16px;
-    color: var(--primary-gold);
 }
 
 /* Premium Article Modal System */
@@ -2158,11 +2257,29 @@ p {
         gap: var(--space-64);
         text-align: center;
     }
-    .cta-text-group { text-align: center; }
-    .cta-v2-p { margin: 0 auto; max-width: 100%; }
-    .cta-v2-trust-horizontal { align-items: center; }
-    .final-cta-section-v2 { padding: 80px 0; }
-    .cta-action-hub { gap: 32px; }
+    .cta-text-group { 
+        text-align: center; 
+        margin: 0 auto;
+    }
+    .cta-v2-p { 
+        margin: 0 auto; 
+        max-width: 100%; 
+    }
+    .cta-action-hub { 
+        gap: 32px; 
+        padding: 40px 24px;
+        align-items: center;
+    }
+    .cta-v2-trust-horizontal { 
+        align-items: center; 
+    }
+    .trust-item {
+        justify-content: center;
+        text-align: center;
+    }
+    .final-cta-section-v2 { 
+        padding: 80px 0; 
+    }
     .btn-xl {
         padding: 16px 36px;
         font-size: 14px;
@@ -2393,24 +2510,68 @@ p {
 
 @media (max-width: 1024px) {
     .floating-card { display: none; }
+    .header-ctas {
+    
+        gap: 14px;
 }
-
-/* Section 2: The Story - Split Narrative */
-.about-story {
-    background-color: var(--bg-primary);
-}
-
-.about-story .dual-split {
-    grid-template-columns: 1.3fr 0.7fr;
-    align-items: stretch; /* Maintain equal height */
-}
-
-.story-content {
-    padding-right: var(--space-64);
+.nav-links ul {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; /* Prevent children (like pill labels) from stretching */
+    gap: 14px;
+    list-style: none;
+}
+}
+
+/* --- About Page Redesign (Section 2 - Premium Overlap) --- */
+.about-story-premium {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--space-100);
+}
+
+.story-hero-visual {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 500px;
+    overflow: hidden;
+    margin-bottom: -150px; /* Pulls the next container up to overlap */
+}
+
+.story-hero-visual img {
+    width: 100%;
+    height: 120%; /* For parallax buffer */
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.story-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-primary) 0%, rgba(10,10,10,0.4) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.container-overlap {
+    position: relative;
+    z-index: 5;
+    padding: 0 40px;
+    display: flex;
+    justify-content: flex-start; /* Align card to the left */
+}
+
+.story-glass-card {
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 64px 56px;
+    max-width: 650px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.story-glass-card .section-subtitle {
+    margin-bottom: 24px;
 }
 
 .section-subtitle {
@@ -2450,7 +2611,91 @@ p {
     min-height: 380px; /* Ensures a baseline height */
 }
 
-/* Section 3: Philosophy - 3 Pillars */
+/* Section 3: Philosophy - Bento Grid */
+.philosophy-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    gap: 24px;
+}
+
+.bento-card {
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 400px;
+}
+
+.bento-card:hover {
+    transform: translateY(-8px);
+}
+
+.bento-large {
+    grid-column: span 8;
+    grid-row: span 2;
+}
+
+.bento-small {
+    grid-column: span 4;
+}
+
+.bento-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+    z-index: 1;
+}
+
+.bento-card:hover .bento-bg {
+    transform: scale(1.05);
+}
+
+.bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,15,15,0.95), rgba(15,15,15,0.4));
+    z-index: 2;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 3;
+}
+
+.bento-icon {
+    font-size: 32px;
+    color: var(--primary-gold);
+    margin-bottom: 24px;
+}
+
+.bento-text h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #FFF;
+}
+
+.bento-text p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+@media (max-width: 950px) {
+    .philosophy-bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-large, .bento-small {
+        grid-column: span 1;
+        grid-row: auto;
+        min-height: 300px;
+    }
+}
 .section-header {
     margin-bottom: var(--space-64);
     display: flex;
@@ -2487,45 +2732,70 @@ p {
 }
 
 .space-gallery-container {
-    /* Align with site-wide container: (100% - 1200px) / 2 + 20px padding */
-    padding-left: calc((100vw - var(--container-max-width)) / 2 + 20px);
-    padding-right: 20px;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
     padding-bottom: var(--space-80);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
-/* Ensure padding doesn't break on small screens */
-@media (max-width: 1240px) {
-    .space-gallery-container {
-        padding-left: 20px;
-    }
-}
-
-.space-gallery-container::-webkit-scrollbar {
-    height: 3px;
-}
-
-.space-gallery-container::-webkit-scrollbar-thumb {
-    background: rgba(212, 175, 55, 0.2);
-    border-radius: 100px;
-}
-
-.space-gallery-inner {
-    display: flex;
-    gap: 32px; /* Restored breathing room between images */
-    width: max-content;
-    padding-bottom: 20px;
+/* --- About Page Redesign (Section 4 - Masonry) --- */
+.premium-gallery-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    gap: 24px;
+    width: 100%;
 }
 
 .gallery-item {
-    width: 480px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    transition: transform 0.8s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.premium-gallery-inner .gallery-item:not(.gallery-featured) {
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .gallery-img {
     width: 100%;
-    aspect-ratio: 16/10;
-    border-radius: 4px;
+    height: 100%;
+}
+
+@media (max-width: 950px) {
+    .premium-gallery-inner {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+    }
+}
+
+@media (max-width: 560px) {
+    .premium-gallery-inner {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 300px;
+    }
+    .gallery-featured {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 }
 
 /* Section 5: The Experience - Journey */
@@ -2533,49 +2803,95 @@ p {
     background-color: var(--bg-primary);
 }
 
-.experience-horizontal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px; /* Essential breathing room between journey steps */
+/* --- About Page Redesign (Section 5 - Timeline) --- */
+.experience-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.5), transparent);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 0 40px;
+    margin-bottom: 60px;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transform: translateY(-50%);
+}
+
+.timeline-item.left .timeline-dot {
+    right: -6px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -6px;
 }
 
 .experience-card {
-    padding: 48px; /* Deep internal margins for each step */
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 4px;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
 .experience-card:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    transform: translateY(-8px);
-    border-color: rgba(212, 175, 55, 0.2);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.3);
 }
 
 .card-num {
-    font-size: 18px;
+    display: inline-block;
+    font-size: 14px;
     color: var(--primary-gold);
     border: 1px solid rgba(212, 175, 55, 0.3);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+}
+
+.timeline-item.left .experience-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    font-weight: 500;
-    font-family: 'Playfair Display', serif;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .card-content h4 {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    margin-bottom: 16px;
-    color: var(--primary-gold);
-    font-weight: 500;
+    margin-bottom: 12px;
+    color: #FFF;
 }
 
 .card-content p {
@@ -2584,75 +2900,116 @@ p {
     line-height: 1.6;
 }
 
-@media (max-width: 991px) {
-    .experience-horizontal-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 950px) {
+    .timeline-line {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 0;
+        left: 0 !important;
+        text-align: left !important;
+    }
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 14px;
+        right: auto;
+    }
+    .timeline-item.left .experience-card {
+        align-items: flex-start;
     }
 }
 
-/* Section 6: Sourcing - Terroir & Traceability */
-.about-sourcing {
-    background-color: var(--bg-primary);
+/* --- About Page Redesign (Section 6 - Premium Immersive Sourcing) --- */
+.about-sourcing-premium {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Push content to bottom */
+    padding-top: 150px;
+    margin-bottom: var(--space-80);
 }
 
-.sourcing-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column to center everything */
-    gap: 60px;
-    align-items: center; 
-    justify-items: center; /* Center horizontally in grid */
+.sourcing-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.sourcing-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.sourcing-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(10,10,10,0.3) 30%, rgba(10,10,10,0.8) 80%, var(--bg-primary) 100%);
+}
+
+.sourcing-content-wrapper {
+    position: relative;
+    z-index: 5;
     text-align: center;
+    margin-bottom: 60px;
 }
 
 .sourcing-intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Center text alignment */
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-.sourcing-visuals {
+.sourcing-stats-bar {
+    position: relative;
+    z-index: 6;
     width: 100%;
-    max-width: 600px; /* Constrain image width */
-    height: 480px;
-    margin: 0 auto;
-}
-
-.sourcing-stats {
-    display: flex;
-    justify-content: center; /* Center the stats flexbox */
-    gap: 48px;
-    margin-top: 48px;
-    padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 30px 0;
+}
+
+.premium-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .stat-val {
-    font-size: 28px; /* Slightly reduced for a more sophisticated, readable fit */
+    font-size: 36px;
     font-family: 'Playfair Display', serif;
     color: var(--primary-gold);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .stat-label {
     font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: var(--text-secondary);
 }
 
-@media (max-width: 991px) {
-    .sourcing-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-48);
+@media (max-width: 950px) {
+    .premium-stats {
+        flex-direction: column;
+        gap: 32px;
     }
 }
 
@@ -2661,6 +3018,7 @@ p {
     background-color: var(--bg-primary);
     overflow: hidden;
     position: relative;
+    padding-top: 40px; /* Reduced top padding to close the gap */
 }
 
 .cta-immersive-wrapper {
@@ -2669,7 +3027,7 @@ p {
     gap: 64px; /* Tightened gap to remove excessive dead space */
     align-items: center;
     position: relative;
-    padding: 100px 0;
+    /* padding removed to prevent double padding with .section-padding */
 }
 
 .cta-content {
@@ -3104,7 +3462,7 @@ p {
         width: 100%;
         max-width: 320px;
         height: 100vh;
-        background-color: var(--bg-dark);
+        background-color: var(--bg-primary);
         padding: 80px 40px;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
@@ -3246,3 +3604,877 @@ p {
         justify-content: center;
     }
 }
+
+/* ============================================================
+   ABOUT PAGE V2 REDESIGN — Sections 2-7
+   Premium, immersive, zero-dead-space layouts
+   ============================================================ */
+
+/* -----------------------------------------------------------
+   Section 2: The Story — Cinematic Split Narrative
+   ----------------------------------------------------------- */
+.about-story-v2 {
+    padding: 40px 0;
+}
+
+.story-v2-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    gap: 0;
+    align-items: stretch;
+}
+
+.story-v2-media {
+    position: relative;
+}
+
+.story-v2-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px 0 0 12px;
+}
+
+.story-v2-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.story-v2-media:hover .story-v2-img {
+    transform: scale(1.04);
+}
+
+.story-v2-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,10,10,0.3) 0%, transparent 50%, rgba(10,10,10,0.15) 100%);
+    pointer-events: none;
+}
+
+.story-v2-accent-line {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-gold);
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.story-v2-content {
+    background: var(--bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.story-v2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--primary-gold);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.story-v2-heading {
+    font-size: 38px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.story-v2-divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-gold), transparent);
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.story-v2-text {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.story-v2-text:last-of-type {
+    margin-bottom: 36px;
+}
+
+.story-v2-stats {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 28px;
+    margin-top: 8px;
+}
+
+.story-v2-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.story-v2-stat-num {
+    font-size: 28px;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-gold);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.story-v2-stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
+}
+
+.story-v2-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Story V2 Responsive */
+@media (max-width: 991px) {
+    .story-v2-container {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+    }
+    .story-v2-img-wrapper {
+        min-height: 280px;
+        max-height: 360px;
+        border-radius: 12px 12px 0 0;
+    }
+    .story-v2-content {
+        border-radius: 0 0 12px 12px;
+        border-left: 1px solid rgba(255, 255, 255, 0.06);
+        border-top: none;
+        padding: 40px 32px;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-story-v2 { padding: 48px 0; }
+    .story-v2-container { padding: 0 16px; }
+    .story-v2-img-wrapper { min-height: 260px; }
+    .story-v2-content { padding: 32px 24px; }
+    .story-v2-heading { font-size: 28px; }
+    .story-v2-stats { flex-direction: column; gap: 20px; }
+    .story-v2-stat-divider { width: 40px; height: 1px; }
+}
+
+/* -----------------------------------------------------------
+   Section 3: Philosophy — Immersive Card Stack
+   ----------------------------------------------------------- */
+.about-philosophy-v2 {
+    position: relative;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.philosophy-v2-bg-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.philosophy-v2-header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+}
+
+.philosophy-v2-title {
+    font-size: var(--fs-h2);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+}
+
+.philosophy-v2-desc {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.philosophy-v2-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.philosophy-v2-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.philosophy-v2-card:hover {
+    transform: translateY(-8px);
+}
+
+.philosophy-v2-card--featured {
+    min-height: 460px;
+}
+
+.philosophy-v2-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s ease;
+    z-index: 1;
+}
+
+.philosophy-v2-card:hover .philosophy-v2-card-bg {
+    transform: scale(1.06);
+}
+
+.philosophy-v2-card-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 40%, rgba(10, 10, 10, 0.15) 100%);
+    z-index: 2;
+}
+
+.philosophy-v2-card-content {
+    position: relative;
+    z-index: 3;
+    padding: 36px 32px;
+}
+
+.philosophy-v2-card-icon {
+    font-size: 28px;
+    color: var(--primary-gold);
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.philosophy-v2-card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.philosophy-v2-card-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.philosophy-v2-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-gold);
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+
+.philosophy-v2-card:hover .philosophy-v2-card-tag {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.philosophy-v2-card-tag i {
+    font-size: 12px;
+    color: var(--primary-gold) !important;
+}
+
+/* Philosophy V2 Responsive */
+@media (max-width: 991px) {
+    .philosophy-v2-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .philosophy-v2-card--featured {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-philosophy-v2 { padding: 48px 0; }
+    .philosophy-v2-grid {
+        grid-template-columns: 1fr;
+    }
+    .philosophy-v2-card--featured {
+        grid-column: span 1;
+    }
+    .philosophy-v2-card {
+        min-height: 340px;
+    }
+    .philosophy-v2-card--featured {
+        min-height: 380px;
+    }
+    .philosophy-v2-card-tag {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -----------------------------------------------------------
+   Section 4: The Space — Immersive Mosaic Gallery
+   ----------------------------------------------------------- */
+.about-space-v2 {
+    padding: 40px 0 0;
+}
+
+.space-v2-header-wrapper {
+    margin-bottom: 32px;
+}
+
+.space-v2-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.space-v2-title {
+    font-size: var(--fs-h2);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    margin-top: 8px;
+}
+
+.space-v2-desc {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 480px;
+}
+
+.space-v2-gallery {
+    padding: 0 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.space-v2-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 280px 280px;
+    gap: 12px;
+}
+
+.space-v2-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.space-v2-gallery-item--tall {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.space-v2-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.space-v2-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.space-v2-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.75) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 24px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.space-v2-gallery-item:hover .space-v2-gallery-overlay {
+    opacity: 1;
+}
+
+.space-v2-gallery-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Gallery Responsive */
+@media (max-width: 991px) {
+    .space-v2-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-auto-rows: 240px;
+    }
+    .space-v2-gallery-item--tall {
+        grid-column: span 2;
+        grid-row: span 1;
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-space-v2 { padding: 48px 0 0; }
+    .space-v2-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+    }
+    .space-v2-gallery-item--tall {
+        grid-column: span 1;
+        max-height: 300px;
+    }
+    .space-v2-title { font-size: 24px; }
+    .space-v2-gallery-overlay { opacity: 1; }
+}
+
+/* -----------------------------------------------------------
+   Section 5: The Experience — Horizontal Journey Cards
+   ----------------------------------------------------------- */
+.about-journey-v2 {
+    padding: 40px 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.journey-v2-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.journey-v2-title {
+    font-size: var(--fs-h2);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+}
+
+.journey-v2-desc {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.journey-v2-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+}
+
+.journey-v2-card {
+    position: relative;
+    padding: 0 28px;
+    text-align: center;
+}
+
+.journey-v2-card-num {
+    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-gold);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0;
+    background: var(--bg-primary);
+    position: relative;
+    z-index: 2;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.journey-v2-card-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
+    margin: -21px 0 21px;
+    position: relative;
+    z-index: 1;
+}
+
+.journey-v2-card:first-child .journey-v2-card-line {
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
+}
+
+.journey-v2-card:last-child .journey-v2-card-line {
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
+}
+
+.journey-v2-card-body {
+    background: var(--bg-primary);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 32px 24px;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.journey-v2-card:hover .journey-v2-card-body {
+    transform: translateY(-6px);
+    border-color: rgba(212, 175, 55, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.journey-v2-card-icon {
+    font-size: 28px;
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+}
+
+.journey-v2-card-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.journey-v2-card-body p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Journey V2 Responsive */
+@media (max-width: 991px) {
+    .journey-v2-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .journey-v2-card-line { display: none; }
+    .journey-v2-card-num { margin-bottom: 16px; }
+}
+
+@media (max-width: 560px) {
+    .about-journey-v2 { padding: 48px 0; }
+    .journey-v2-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .journey-v2-title { font-size: 24px; }
+}
+
+/* -----------------------------------------------------------
+   Section 6: Sourcing — Cinematic Parallax with Stats Grid
+   ----------------------------------------------------------- */
+.about-sourcing-v2 {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sourcing-v2-visual {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.sourcing-v2-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.sourcing-v2-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.7) 45%, rgba(10,10,10,0.3) 100%);
+}
+
+.sourcing-v2-content-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 80px 0;
+}
+
+.sourcing-v2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.sourcing-v2-heading {
+    font-size: 42px;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.sourcing-v2-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--primary-gold);
+    margin-bottom: 24px;
+    border-radius: 2px;
+}
+
+.sourcing-v2-desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.85;
+    max-width: 460px;
+}
+
+.sourcing-v2-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.sourcing-v2-stat-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.sourcing-v2-stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.sourcing-v2-stat-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-gold), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.sourcing-v2-stat-card:hover .sourcing-v2-stat-accent {
+    opacity: 1;
+}
+
+.sourcing-v2-stat-value {
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-gold);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.sourcing-v2-stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sourcing V2 Responsive */
+@media (max-width: 991px) {
+    .sourcing-v2-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+    }
+    .sourcing-v2-desc {
+        margin: 0 auto;
+    }
+    .sourcing-v2-divider {
+        margin-inline: auto;
+    }
+    .about-sourcing-v2 {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .sourcing-v2-content-wrapper { padding: 60px 0; }
+    .sourcing-v2-heading { font-size: 28px; }
+    .sourcing-v2-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .sourcing-v2-stat-card { padding: 24px 20px; }
+    .sourcing-v2-stat-value { font-size: 24px; }
+}
+
+/* -----------------------------------------------------------
+   Section 7: Closing — Full-screen Cinematic CTA
+   ----------------------------------------------------------- */
+.about-cta-v2 {
+    position: relative;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cta-v2-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.cta-v2-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.cta-v2-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.85) 100%);
+}
+
+.cta-v2-content-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 48px 0;
+}
+
+.cta-v2-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-v2-heading {
+    font-size: 48px;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.cta-v2-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-v2-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.cta-v2-btn {
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2) !important;
+}
+
+.cta-v2-btn-secondary {
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    color: #fff !important;
+}
+
+.cta-v2-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.cta-v2-micro {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.5px;
+}
+
+/* CTA V2 Responsive */
+@media (max-width: 991px) {
+    .about-cta-v2 { min-height: auto; }
+    .cta-v2-content-wrapper { padding: 40px 0; }
+    .cta-v2-heading { font-size: 36px; }
+}
+
+@media (max-width: 560px) {
+    .cta-v2-heading { font-size: 28px; }
+    .cta-v2-text { font-size: 14px; margin-bottom: 24px; }
+    .cta-v2-actions { flex-direction: column; gap: 12px; }
+    .cta-v2-actions .btn { width: 100%; text-align: center; justify-content: center; }
+}
+

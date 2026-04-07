@@ -243,7 +243,8 @@
     text-transform: uppercase; 
     letter-spacing: 3px; 
     padding: 24px 32px; 
-    opacity: 0.3; 
+    color: var(--text-secondary);
+    opacity: 0.8; 
 }
 
 .tea-card-img-box { 
@@ -390,7 +391,7 @@
 }
 
 .wellbeing-section {
-    padding: 140px 0;
+    padding: var(--section-padding-large) 0;
     position: relative;
     overflow: hidden;
     background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05), transparent 70%);
@@ -414,7 +415,7 @@
     background: rgba(255, 255, 255, 0.015);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.18);
     border-radius: 40px;
     padding: 64px 48px;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -540,7 +541,7 @@
 
 /* === Tea Page Compact Centered CTA === */
 .tea-cta {
-    padding: 120px 0;
+    padding: var(--section-padding) 0;
     background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05), transparent 70%);
 }
 
@@ -624,7 +625,7 @@
 /* === Meditation Experience Page Specifics === */
 .meditation-hero { 
     min-height: 85vh; /* Adjusted for flow */
-    padding: 140px 0 100px; /* Essential vertical space */
+    padding: var(--section-padding-large) 0 var(--section-padding); /* Essential vertical space */
     position: relative; 
     overflow: hidden; 
 }
@@ -937,8 +938,8 @@
     transition: var(--transition-base);
 }
 
-.step-card-v2:nth-child(2) { margin-top: 64px; }
-.step-card-v2:nth-child(3) { margin-top: 128px; }
+.step-card-v2:nth-child(2) { margin-top: 0; }
+.step-card-v2:nth-child(3) { margin-top: 0; }
 
 .step-card-v2:hover {
     background: rgba(255, 255, 255, 0.025);
@@ -1521,7 +1522,7 @@
         padding: 56px 0 !important;
     }
 }
-.concierge-features { display: flex; justify-content: center; gap: 48px; margin-top: 56px; }
+.concierge-features { display: flex; justify-content: flex-start; gap: 48px; margin-top: 56px; }
 
 .feat-item { display: flex; align-items: flex-start; gap: 16px; }
 
@@ -1625,7 +1626,11 @@
     top: 0; left: 0;
 }
 
-.eti-visual-v3 { position: relative; height: 400px; width: 100%; max-width: 600px; }
+.eti-visual-v3 { position: relative; height: 400px; width: 100%; max-width: 600px; margin-bottom: 40px; }
+
+.noir-access-section {
+    margin-top: 40px;
+}
 
 
 
@@ -1821,10 +1826,14 @@
 }
 
 .quietude-ribbon { 
-    padding: 80px 100px;
+    padding: 0;
     text-align: center;
     border: none !important; /* Boundary Eradicated */
     background: transparent !important;
+}
+
+.ribbon-content-v5 {
+    padding: 80px 100px;
 }
 
 .ribbon-content-v5 p {
@@ -2086,6 +2095,89 @@
 
 .auth-footer { margin-top: 32px; font-size: 12px; color: var(--text-secondary); }
 
+/* === Auth Page Toggle Bar (Theme + RTL) === */
+.auth-toggles {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding: 4px;
+    z-index: 100;
+    animation: toggleFadeIn 0.6s ease 0.3s both;
+}
+
+@keyframes toggleFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 18px;
+}
+
+.auth-toggle-btn i {
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.auth-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+.auth-toggle-btn.active-toggle {
+    /* background: #ffffff; */
+    color: #0a0a0a;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.auth-toggle-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 2px;
+}
+
+.auth-toggle-btn .dark-icon,
+.auth-toggle-btn .light-icon {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.auth-toggle-btn .light-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+body.light-mode .auth-toggle-btn .dark-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+body.light-mode .auth-toggle-btn .light-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
 .wave { display: inline-block; animation: wave 2.5s infinite; transform-origin: 70% 70%; }
 @keyframes wave {
  0% { transform: rotate(0deg); }
@@ -2191,6 +2283,7 @@
     display: flex;
     justify-content: center;
     gap: 12px;
+    text-decoration: none;
 }
 
 .b-noir { color: var(--text-primary); }
@@ -2201,8 +2294,8 @@
 }
 
 /* === Alchemy Section Redesign === */
-.alchemy-section { padding-bottom: 60px; }
-.seasonal-block { padding-top: 60px; }
+.alchemy-section { padding-bottom: 0 !important; }
+.seasonal-block { padding-top: 0 !important; }
 .alchemy-container { gap: 80px; align-items: start; }
 
 .alchemy-ritual-track {
@@ -2282,7 +2375,7 @@
 
 /* === PRO LEVEL TEA HERO === */
 .pro-hero-v2 {
-    min-height: 70vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -2381,7 +2474,7 @@
 
 .pro-scroll-hint {
     position: absolute;
-    bottom: 4px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

@@ -1,0 +1,164 @@
+/* 
+  Noirbrew - RTL (Right-to-Left) Support Protocol
+  ------------------------------------------------
+  Flips layouts, spacing, and directional elements
+  for RTL language support (Arabic, Hebrew, etc.)
+*/
+
+/* === Global RTL Overrides === */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .text-center {
+    text-align: center;
+}
+
+/* === Auth Page RTL === */
+[dir="rtl"] .auth-back-link {
+    left: auto;
+    right: 0;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .auth-back-link i {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .auth-form-v2 {
+    text-align: right;
+}
+
+[dir="rtl"] .auth-field-v2 {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .auth-password-wrapper i {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .auth-password-wrapper .auth-field-v2 {
+    padding-right: 20px;
+    padding-left: 48px;
+}
+
+[dir="rtl"] .auth-secondary-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .remember-me {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-btn {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .auth-header {
+    text-align: center;
+}
+
+[dir="rtl"] .brand-signature-v2 {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .terms-v2 label {
+    text-align: right;
+}
+
+/* === Auth Toggle Bar RTL === */
+[dir="rtl"] .auth-toggles {
+    left: 32px;
+    right: auto;
+}
+
+/* === Navigation RTL === */
+[dir="rtl"] .nav-container {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-links ul {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-ctas {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* === Card & Grid RTL === */
+[dir="rtl"] .gate-coords {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .c-icon {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .milestone-dot {
+    left: auto;
+    right: -48px;
+}
+
+[dir="rtl"] .alchemy-ritual-track {
+    padding-left: 0;
+    padding-right: 48px;
+}
+
+[dir="rtl"] .ritual-track-line {
+    left: auto;
+    right: 14px;
+}
+
+/* === Footer RTL === */
+[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+/* === Map & Telemetry RTL === */
+[dir="rtl"] .map-overlay-layer {
+    left: auto;
+    right: 20px;
+}
+
+[dir="rtl"] .map-visual-container {
+    border-right: none;
+    border-left: 1px solid var(--glass-border);
+}
+
+/* === Form Fields RTL === */
+[dir="rtl"] .field-v3 {
+    text-align: right;
+}
+
+[dir="rtl"] .input-group-v3 label {
+    text-align: right;
+}
+
+/* === Misc RTL Fixes === */
+[dir="rtl"] .meta-row {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .meta-bit {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cs-back-link {
+    left: auto;
+    right: 40px;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cs-back-link i {
+    transform: scaleX(-1);
+}

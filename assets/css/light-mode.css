@@ -131,16 +131,94 @@ p, .philosophy-text, .section-desc, .stat-label, .max-600, .sidebar-p {
     opacity: 1 !important; 
 }
 
+/* 📝 FORM FIELD VISIBILITY FIXES (Inputs, Textareas, Selects) */
+body.light-mode input:not([type="submit"]):not([type="button"]):not([type="hidden"]),
+body.light-mode textarea,
+body.light-mode select,
+body.light-mode .newsletter-form input {
+    background-color: var(--card-bg) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important; /* Visible light border */
+    color: var(--text-primary) !important; /* Visible dark text */
+}
+
+body.light-mode input:focus,
+body.light-mode textarea:focus,
+body.light-mode select:focus,
+body.light-mode .newsletter-form input:focus {
+    border-color: var(--primary-gold) !important;
+    background-color: #ffffff !important;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder,
+body.light-mode .newsletter-form input::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7 !important;
+}
+
 /* 🎭 MIDNIGHT ISOLATION (Fixed Dark Regions in Light Mode) */
 .hero, .hero-v2, .meditation-hero, .reservation-hero, .tea-hero, .about-hero, .contact-hero, 
-.map-overlay-layer, .live-telemetry, .aid-item, .meditation-cta-v3, .lineage-section, .pro-floating-card {
+.map-overlay-layer, .live-telemetry, .aid-item, .meditation-cta-v3, .lineage-section, .pro-floating-card,
+.story-hero-visual, .about-sourcing-premium, .sourcing-stats-bar, .bento-overlay,
+.about-sourcing-v2, .about-cta-v2, .philosophy-v2-card {
     background-color: #0d0d0d !important;
 }
 
 /* Force White for Midnight Isolation elements */
-.hero *, .hero-v2 *, .meditation-hero *, .reservation-hero *, .tea-hero *, .about-hero *, .contact-hero *, 
-.live-telemetry *, .tel-text, .aid-item *, .meditation-cta-v3 *, .lineage-section *, .pro-floating-card * {
+.hero *, .hero-v2 *, .meditation-hero *, .reservation-hero *, .tea-hero *, .about-hero *, .contact-hero *,
+.map-overlay-layer *, .live-telemetry *, .aid-item *, .meditation-cta-v3 *, .lineage-section *, .pro-floating-card *,
+.story-hero-visual *, .about-sourcing-premium *, .sourcing-stats-bar *, .bento-overlay *,
+.about-sourcing-v2 *, .about-cta-v2 *, .philosophy-v2-card * {
     color: #ffffff !important;
+}
+
+/* 🎨 ABOUT V2 LIGHT MODE ADAPTATIONS */
+body.light-mode .story-v2-content {
+    background: var(--bg-secondary) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+body.light-mode .story-v2-content * {
+    color: var(--text-primary) !important;
+}
+body.light-mode .story-v2-text,
+body.light-mode .story-v2-stat-label,
+body.light-mode .story-v2-badge span {
+    color: var(--text-secondary) !important;
+}
+body.light-mode .story-v2-stat-num,
+body.light-mode .story-v2-badge .badge-dot {
+    color: var(--primary-gold) !important;
+}
+body.light-mode .story-v2-stats {
+    border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+body.light-mode .story-v2-stat-divider {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Journey cards in light mode */
+body.light-mode .about-journey-v2 {
+    background-color: var(--bg-secondary) !important;
+    border-top-color: rgba(0, 0, 0, 0.06) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+body.light-mode .journey-v2-card-body {
+    background: var(--bg-primary) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+body.light-mode .journey-v2-card-num {
+    background: var(--bg-secondary) !important;
+}
+
+/* Philosophy card icons stay gold in light mode */
+body.light-mode .philosophy-v2-card-icon i,
+body.light-mode .philosophy-v2-card-tag i {
+    color: var(--primary-gold) !important;
+}
+
+/* Sourcing stat values stay gold */
+body.light-mode .sourcing-v2-stat-value {
+    color: var(--primary-gold) !important;
 }
 
 /* 🔘 BUTTON & LINK RESOLUTION */
@@ -149,20 +227,117 @@ p, .philosophy-text, .section-desc, .stat-label, .max-600, .sidebar-p {
     color: var(--text-primary) !important;
     background: transparent !important;
 }
-.hero .btn-secondary, .about-hero .btn-secondary, .meditation-hero .btn-secondary, .contact-hero .btn-secondary {
+.hero .btn-secondary, .hero-v2 .btn-secondary, .about-hero .btn-secondary, .meditation-hero .btn-secondary, .contact-hero .btn-secondary, .reservation-hero .btn-secondary, .tea-hero .btn-secondary, .about-cta-v2 .btn-secondary {
     border-color: #ffffff !important;
     color: #ffffff !important;
 }
 
 /* Spectral Exceptions for Icons and Accents */
-.hero i, .aid-item i, .meditation-cta-v3 i, .lineage-section i,
-.hero .ph, .aid-item .ph, .meditation-cta-v3 .ph, .lineage-section .ph {
+.hero i, .hero-v2 i, .about-hero i, .meditation-hero i, .reservation-hero i, .tea-hero i, .contact-hero i, .aid-item i, .meditation-cta-v3 i, .lineage-section i,
+.hero .ph, .hero-v2 .ph, .about-hero .ph, .meditation-hero .ph, .reservation-hero .ph, .tea-hero .ph, .contact-hero .ph, .aid-item .ph, .meditation-cta-v3 .ph, .lineage-section .ph {
     color: #ffffff !important;
 }
 
 .gold-text, .primary-gold, .stat-val, .metric-num, .m-val, .c-val,
-.hero .gold-text, .aid-item .gold-text, .meditation-cta-v3 .gold-text, .lineage-section .gold-text, .pro-floating-card .stat-num { 
+.hero .gold-text, .hero-v2 .gold-text, .about-hero .gold-text, .meditation-hero .gold-text, .reservation-hero .gold-text, .tea-hero .gold-text, .contact-hero .gold-text, .aid-item .gold-text, .meditation-cta-v3 .gold-text, .lineage-section .gold-text, .pro-floating-card .stat-num { 
     color: var(--primary-gold) !important; 
 }
 i, .ph { color: var(--text-primary) !important; }
 .hero i, .live-telemetry i { color: #ffffff !important; }
+
+/* 🔐 AUTH PAGE LIGHT MODE OVERRIDES */
+body.light-mode.auth-body {
+    background: radial-gradient(circle at center, #f0f0f0, #ffffff) !important;
+}
+
+body.light-mode .auth-card.glass-card {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-mode .social-btn {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: var(--text-primary) !important;
+}
+
+body.light-mode .social-btn:hover {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+body.light-mode .social-btn i {
+    color: var(--text-primary) !important;
+}
+
+body.light-mode .auth-divider::before,
+body.light-mode .auth-divider::after {
+    background: #0a0a0a !important;
+}
+
+body.light-mode .auth-field-v2 {
+    background: #f5f5f5 !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #0a0a0a !important;
+}
+
+body.light-mode .auth-field-v2:focus {
+    border-color: var(--primary-gold) !important;
+    background: #ffffff !important;
+}
+
+body.light-mode .auth-field-v2::placeholder {
+    color: #999999 !important;
+}
+
+body.light-mode .auth-password-wrapper i {
+    color: var(--text-secondary) !important;
+}
+
+body.light-mode .auth-password-wrapper i:hover {
+    color: var(--primary-gold) !important;
+}
+
+body.light-mode .gold-link:hover {
+    color: var(--text-primary) !important;
+    text-decoration-color: var(--text-primary) !important;
+}
+
+body.light-mode .auth-back-link {
+    color: var(--text-secondary) !important;
+}
+
+body.light-mode .auth-back-link i {
+    color: var(--text-secondary) !important;
+}
+
+body.light-mode .auth-back-link:hover,
+body.light-mode .auth-back-link:hover i {
+    color: var(--primary-gold) !important;
+}
+
+/* Auth Toggle Bar Light Mode */
+body.light-mode .auth-toggles {
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .auth-toggle-btn {
+    color: var(--text-secondary) !important;
+    background: transparent !important;
+}
+
+body.light-mode .auth-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.04) !important;
+    color: var(--text-primary) !important;
+}
+
+body.light-mode .auth-toggle-btn.active-toggle {
+    /* background: var(--text-primary) !important; */
+    color: #ffffff !important;
+}
+
+body.light-mode .auth-toggle-divider {
+    background: rgba(0, 0, 0, 0.1) !important;
+}

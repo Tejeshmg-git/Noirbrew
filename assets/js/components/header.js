@@ -12,6 +12,8 @@ class SiteHeader extends HTMLElement {
         const meditationLink = `${pagesBase}meditation.html`;
         const reservationLink = `${pagesBase}reservation.html`;
         const contactLink = `${pagesBase}contact.html`;
+        const loginLink = `${pagesBase}login.html`;
+
 
         this.innerHTML = `
             <header class="header transparent">
@@ -35,7 +37,8 @@ class SiteHeader extends HTMLElement {
                             <li><a href="${reservationLink}">Reservation</a></li>
                             <li><a href="${contactLink}">Contact</a></li>
                             <li class="mobile-only-btn"><a href="${teaLink}" class="btn btn-secondary" style="margin-top:16px;">Explore Tea</a></li>
-                            <li class="mobile-only-btn"><a href="${reservationLink}" class="btn btn-primary">Book Now</a></li>
+                            <li class="mobile-only-btn"><a href="${loginLink}" class="btn btn-primary">Book Now</a></li>
+
                         </ul>
                     </nav>
 
@@ -48,12 +51,12 @@ class SiteHeader extends HTMLElement {
                         
                         <!-- RTL Toggle -->
                         <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
-                            <i class="ph ph-translate"></i>
+                            <i class="ph ph-text-aa"></i>
                         </button>
 
                         <!-- Action Buttons -->
                         <a href="${teaLink}" class="btn btn-secondary">Explore Tea</a>
-                        <a href="${reservationLink}" class="btn btn-primary">Book Now</a>
+                        <a href="${loginLink}" class="btn btn-primary">Book Now</a>
 
                         <!-- Mobile Hamburger -->
                         <button class="hamburger-menu" aria-label="Open Menu">
@@ -197,6 +200,8 @@ class SiteHeader extends HTMLElement {
                 color: var(--text-primary) !important;
                 background: var(--bg-secondary) !important;
             }
+
+
         `;
         this.appendChild(activeStyles);
 
