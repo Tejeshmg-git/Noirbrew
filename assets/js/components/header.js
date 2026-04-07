@@ -52,7 +52,7 @@ class SiteHeader extends HTMLElement {
                         
                         <!-- RTL Toggle -->
                         <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
-                            <i class="ph ph-text-aa"></i>
+                            <i class="ph ph-arrows-left-right"></i>
                         </button>
 
                         <!-- Action Buttons -->

@@ -854,6 +854,8 @@ p {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 12px;
+        margin-top: 12px;
+
     display: inline-block;
     font-weight: 600;
 }
@@ -3528,14 +3530,29 @@ p {
         min-width: 100%;
         box-shadow: none;
         border: none;
-        padding: 12px 0 0 0; /* Remove left padding to ensure perfect centering */
+        padding: 12px 0 0 0;
         background-color: transparent;
-        display: flex; /* Always visible in mobile menu */
+        display: flex;
         flex-direction: column;
-        align-items: center; /* Center children */
+        align-items: center;
         gap: 8px;
         opacity: 1;
         visibility: visible;
+    }
+
+    .has-dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .has-dropdown > .dropdown-trigger {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        display: flex;
+        gap: 6px;
     }
 
     .dropdown-menu li a {
