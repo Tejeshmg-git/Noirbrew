@@ -340,6 +340,7 @@ p {
     width: 28px;
     height: 28px;
     margin-right: 10px;
+
     object-fit: contain;
 }
 
@@ -1203,11 +1204,11 @@ p {
 
 @media (max-width: 560px) {
     .hero-v2 {
-        padding: 100px 0 60px;
+        padding: 80px 0 40px;
     }
     .hero-v2-split {
-        padding: 100px 0 60px;
-        gap: 40px;
+        padding: 80px 0 40px;
+        gap: 32px;
     }
     .hero-v2 h1 {
         font-size: 30px;
@@ -1418,7 +1419,7 @@ p {
     margin-bottom: var(--gap-action);
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Left-align the list items */
+    align-items: center; /* Center-align the list items to match centered content */
     gap: 12px;
     width: fit-content;
     margin-left: auto;

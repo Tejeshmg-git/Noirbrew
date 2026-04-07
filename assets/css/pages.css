@@ -620,6 +620,7 @@
  .tea-cta-card { padding: 56px 32px; }
  .cta-title-v4 { font-size: 36px; }
  .cta-perks-v4 { flex-direction: column; gap: 24px; align-items: center; }
+ .perk-item-v4 { justify-content: center; }
 }
 
 /* === Meditation Experience Page Specifics === */
@@ -790,7 +791,24 @@
     .upgrade-layout { flex-direction: column; text-align: center; }
     .meditation-offset-frame { display: none; }
     .meditation-hero-text { align-items: center; display: flex; flex-direction: column; }
-    .breath-heading .h1-primary-gold { font-size: 52px; }
+    .breath-heading .h1-primary-gold { font-size: 44px; }
+    .heading-underline-gold { margin: 0 auto 32px; }
+    .ritual-spec-ribbon { justify-content: center; flex-wrap: wrap; }
+    .meditation-hero-ctas { justify-content: center; }
+    .meditation-hero { min-height: 70vh; padding: 100px 0 60px; }
+}
+
+@media (max-width: 560px) {
+    .meditation-hero { min-height: auto; padding: 120px 0 40px; }
+    .breath-heading .h1-secondary { font-size: 20px; letter-spacing: 3px; }
+    .breath-heading .h1-primary-gold { font-size: 30px; }
+    .breath-heading { margin-bottom: 20px; }
+    .meditation-hero-subtext { font-size: 14px; margin-bottom: 28px; }
+    .ritual-spec-ribbon { flex-direction: column; gap: 10px; margin-bottom: 32px; font-size: 10px; }
+    .ritual-spec-ribbon .dot-sep { width: 5px; height: 5px; }
+    .meditation-hero-ctas { width: 100%; }
+    .meditation-hero-ctas .btn { width: 100%; justify-content: center; }
+    .guided-entry-hint { display: none; }
 }
 
 .silence-perks {
@@ -1694,7 +1712,7 @@
 
 /* === Contact Page Specifics === */
 .contact-hero {
-    min-height: 60vh; /* Increased for authority */
+    min-height: 50vh; /* Reduced for mobile balance */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1777,7 +1795,7 @@
     border-radius: 20px;
 }
 
-.dual-split-v4 { display: grid; grid-template-columns: 1fr; gap: 64px; align-items: center; justify-items: center; text-align: center; }
+.dual-split-v4 { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; justify-items: center; text-align: center; }
 
 .inquiry-content-v4 {
     display: flex;
@@ -2286,9 +2304,18 @@ body.light-mode .auth-toggle-btn .light-icon {
     letter-spacing: 6px;
     margin-bottom: 32px;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 12px;
     text-decoration: none;
+}
+
+.brand-signature-v2 .nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
+    margin-top: 0;
+    object-fit: contain;
 }
 
 .b-noir { color: var(--text-primary); }
@@ -2296,6 +2323,7 @@ body.light-mode .auth-toggle-btn .light-icon {
 
 @media (max-width: 767px) {
     .brand-signature-v2 { font-size: 20px; letter-spacing: 4px; }
+    .brand-signature-v2 .nav-logo-icon { width: 26px; height: 26px; }
 }
 
 /* === Alchemy Section Redesign === */
@@ -2596,16 +2624,19 @@ body.light-mode .auth-toggle-btn .light-icon {
     }
     .hero-micro-specs {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         margin: 20px 0;
-        font-size: 10px !important;
+        font-size: 11px !important;
+        align-items: center;
     }
     .hero-micro-specs .dot-sep {
-        display: none;
+        width: 5px;
+        height: 5px;
+        display: block;
     }
     .hero-micro-specs span {
         white-space: normal;
-        font-size: 10px;
+        font-size: 11px;
     }
     .hero-ctas-v2 {
         flex-direction: column;
@@ -2744,9 +2775,22 @@ body.light-mode .auth-toggle-btn .light-icon {
 
 /* === Contact Page - Small Mobile (320px) Fixes === */
 @media (max-width: 560px) {
+    /* Contact hero: reduce height on mobile */
+    .contact-hero {
+        min-height: 40vh !important;
+    }
+    .contact-hero h1 {
+        font-size: 28px !important;
+        letter-spacing: -1px;
+    }
+    .contact-subtext {
+        font-size: 13px !important;
+        margin-top: 16px !important;
+    }
+
     /* Inquiry section: reduce gap and fix text overflow */
     .dual-split-v4 {
-        gap: 32px !important;
+        gap: 24px !important;
     }
 
     .inquiry-content-v4 .ritual-h2 {

@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="4" fill="#0A0A0A"/>
-  <text x="16" y="23" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="600" font-size="20" fill="#C8A96E">N</text>
+  <!-- Tea leaf icon -->
+  <path d="M16 6c-3 2-6 6-6 11 0 4.5 3 8 6 9 3-1 6-4.5 6-9 0-5-3-9-6-11z" fill="none" stroke="#C8A96E" stroke-width="1.2"/>
+  <path d="M16 8c-2 2-4 5-4 9 0 3 1.5 5.5 4 7" fill="none" stroke="#C8A96E" stroke-width="0.8" opacity="0.7"/>
+  <line x1="16" y1="10" x2="16" y2="26" stroke="#C8A96E" stroke-width="0.6" opacity="0.5"/>
 </svg>
