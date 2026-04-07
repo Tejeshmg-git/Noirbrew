@@ -600,6 +600,9 @@
 
 .perk-item-v4 i {
  font-size: 20px;
+ width: 24px; /* Fixed width for icon to ensure vertical baseline for text */
+ text-align: center;
+ flex-shrink: 0;
 }
 
 .cta-actions-v4 {
@@ -617,11 +620,36 @@
 }
 
 @media (max-width: 768px) {
-    
- .tea-cta-card { padding: 56px 32px; }
- .cta-title-v4 { font-size: 36px; }
- .cta-perks-v4 { flex-direction: column; gap: 24px; align-items: center; }
- .perk-item-v4 { justify-content: center; }
+    .tea-cta-card { padding: 56px 32px; }
+    .cta-title-v4 { font-size: 36px; }
+    /* Keeping horizontal alignment on tablets, but ensuring center-justify */
+    .cta-perks-v4 { 
+        display: flex;
+        flex-direction: row; 
+        justify-content: center; 
+        gap: 32px;
+        align-items: center;
+        width: 100%;
+    } 
+}
+
+@media (max-width: 640px) {
+    .cta-perks-v4 { 
+        display: flex;
+        flex-direction: column; 
+        gap: 20px; 
+        align-items: flex-start; /* Aligned near margin on mobile */
+        width: 100%;
+        max-width: 250px; /* Compact aligned stack */
+        margin: 0 auto; /* Keep the stack centered within the card overall */
+        padding: 0 0 24px 0;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .perk-item-v4 { 
+        justify-content: flex-start; 
+        width: 100%;
+        text-align: left;
+    }
 }
 
 /* === Meditation Experience Page Specifics === */

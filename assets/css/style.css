@@ -997,8 +997,6 @@ p {
 /* Responsive Overrides */
 @media (max-width: 1024px) {
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
-    .experience-section { grid-template-columns: 1fr; text-align: center; }
-    .experience-content { margin: 0 auto; }
 }
 
 @media (max-width: 640px) {
@@ -1021,19 +1019,27 @@ p {
         justify-content: center;
     }
 
-    /* V1 CTA Split - Stack on mobile */
+    /* V1 Experience Section - Stack on mobile only */
+    .experience-section { 
+        grid-template-columns: 1fr; 
+        text-align: left; 
+    }
+    .experience-content { margin: 0; }
+    .experience-img { margin: 0; }
+
+    /* V1 CTA Split - Left align on mobile */
     .cta-split {
         grid-template-columns: 1fr;
         gap: 40px;
-        text-align: center;
+        text-align: left;
     }
     .cta-img {
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0;
     }
     .cta-content {
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0;
     }
     .btn-large {
         padding: 14px 32px;
@@ -1041,17 +1047,19 @@ p {
         width: 100%;
     }
 
-    /* V1 Meditation Split - Stack on mobile */
+    /* V1 Meditation Split - Left align on mobile */
     .meditation-split {
         grid-template-columns: 1fr;
         gap: 40px;
-        text-align: center;
+        text-align: left;
     }
     .meditation-img {
         max-width: 100%;
+        margin: 0;
     }
     .meditation-content {
         max-width: 100%;
+        padding-right: 0;
     }
 }
 
@@ -1394,26 +1402,26 @@ p {
 
 .ritual-content {
     max-width: 520px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .ritual-h2 {
     font-size: var(--fs-h2);
     margin-bottom: var(--gap-heading);
-    text-align: center;
+    text-align: left;
 }
 
 .ritual-p {
     font-size: var(--fs-body);
     line-height: 1.8;
     color: var(--text-secondary);
-    margin: 0 auto var(--gap-content) auto;
+    margin: 0 0 var(--gap-content) 0;
     max-width: 520px;
-    text-align: center;
+    text-align: left;
 }
 
 .experience-highlights {
@@ -1422,11 +1430,11 @@ p {
     margin-bottom: var(--gap-action);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-align the list items to match centered content */
+    align-items: flex-start; /* Aligned to left margin */
     gap: 12px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .experience-highlights li {
@@ -1452,7 +1460,7 @@ p {
     align-items: center;
     gap: 40px;
     margin-bottom: var(--gap-action); /* Locked to final spacing system */
-    justify-content: center !important; /* Force center alignment */
+    justify-content: flex-start; /* Aligned to left margin */
 }
 
 .link-with-arrow {
@@ -1479,8 +1487,9 @@ p {
     border-bottom: 1px solid rgba(212,175,55,0.2);
     padding: 16px 0;
     margin-top: 48px; /* Deep breath of space above the quote */
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    width: fit-content; /* Reduced width to match content and look like a signature */
+    max-width: 100%;
 }
 
 /* Image Mask & Effects */
@@ -1614,6 +1623,28 @@ p {
     }
     .hero-v2 { padding: 140px 0 80px; }
     .blog-header { flex-direction: column; align-items: flex-start; gap: var(--space-24); }
+
+    /* Ensuring Rituals stay aligned to margin for mobile stacking as well */
+    .ritual-content {
+        text-align: left;
+        align-items: flex-start;
+        margin: 0;
+    }
+    .ritual-h2, .ritual-p, .ritual-quote {
+        text-align: left;
+    }
+    .ritual-p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .experience-highlights {
+        align-items: flex-start;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .v2-actions-group {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 640px) {
@@ -3654,8 +3685,8 @@ p {
 
 .story-v2-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1400px;
+    grid-template-columns: 0.85fr 1.15fr; /* Reduced image column for more focus on narrative */
+    max-width: 1100px; /* More refined container width */
     margin: 0 auto;
     padding: 0 40px;
     gap: 0;
