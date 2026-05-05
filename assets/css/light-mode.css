@@ -33,7 +33,7 @@ body.light-mode {
     --bg-primary: #ffffff;
     --bg-secondary: #f9f9f9;
     --bg-elevated: #f0f0f0;
-
+    --section-dark: var(--bg-secondary);
     --text-primary: #0a0a0a;   
     --text-secondary: #444444; 
     --text-muted: #888888;     

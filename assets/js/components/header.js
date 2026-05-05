@@ -18,7 +18,9 @@ class SiteHeader extends HTMLElement {
                 <div class="container nav-container">
                     <a href="${homeV1Link}" class="logo">
                         <img src="${base}assets/images/logo-icon.svg" alt="Noirbrew Logo" class="logo-img">
-                        <span class="noir">NOIR</span><span class="brew">BREW</span>
+                        <div class="logo-text">
+                            <span class="noir">NOIR</span><span class="brew">BREW</span>
+                        </div>
                     </a>
                     
                     <nav class="nav-links">
@@ -45,15 +47,15 @@ class SiteHeader extends HTMLElement {
                                 <i class="ph ph-moon dark-icon"></i>
                                 <i class="ph ph-sun light-icon"></i>
                             </button>
-                            <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
-                                <i class="ph ph-translate"></i>
+                            <button id="rtl-toggle" class="icon-btn rtl-btn" aria-label="Toggle RTL">
+                                <span class="rtl-label">RTL</span>
                             </button>
                         </div>
                         
                         <!-- Desktop Buttons -->
                         <div class="desktop-btns">
                             <a href="${teaLink}" class="btn btn-secondary">Explore Tea</a>
-                            <a href="${reservationLink}" class="btn btn-primary">Book Now</a>
+                            <a href="${reservationLink}#form" class="btn btn-primary">Book Now</a>
                         </div>
 
                         <!-- Mobile Hamburger -->
@@ -92,13 +94,13 @@ class SiteHeader extends HTMLElement {
                             <i class="ph ph-moon dark-icon"></i>
                             <i class="ph ph-sun light-icon"></i>
                         </button>
-                        <button id="mobile-rtl-toggle" class="icon-btn-circle" aria-label="Toggle RTL">
-                            <i class="ph ph-translate"></i>
+                        <button id="mobile-rtl-toggle" class="icon-btn-circle rtl-btn" aria-label="Toggle RTL">
+                            <span class="rtl-label">RTL</span>
                         </button>
                     </div>
                     <div class="sidebar-btns">
                         <a href="${teaLink}" class="btn btn-secondary w-100">Explore Tea</a>
-                        <a href="${reservationLink}" class="btn btn-primary w-100">Book Now</a>
+                        <a href="${reservationLink}#form" class="btn btn-primary w-100">Book Now</a>
                     </div>
                 </div>
             </aside>
@@ -159,17 +161,27 @@ class SiteHeader extends HTMLElement {
         if (overlay) overlay.addEventListener('click', toggleSidebar);
         if (closeBtn) closeBtn.addEventListener('click', toggleSidebar);
 
-        // Active Link Highlight
-        const path = window.location.pathname;
-        const page = path.split("/").pop();
-        const navItems = this.querySelectorAll('.sidebar-nav a, .nav-links a');
+        // Active Link Highlight (Refined for Component Parity)
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split("/").pop() || "index.html";
+        const navLinks = this.querySelectorAll('.nav-links a, .sidebar-nav a');
 
-        navItems.forEach(link => {
+        navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (!href) return;
+            
+            // Normalize href for comparison
             const linkPage = href.split("/").pop();
-            if (page === linkPage || (page === "" && linkPage === "index.html")) {
+            
+            if (currentPage === linkPage) {
                 link.classList.add('active');
+                
+                // If it's a child of a dropdown, highlight the parent trigger too
+                const dropdownParent = link.closest('.has-dropdown');
+                if (dropdownParent) {
+                    const trigger = dropdownParent.querySelector('.dropdown-trigger');
+                    if (trigger) trigger.classList.add('active');
+                }
             }
         });
 
@@ -186,18 +198,43 @@ class SiteHeader extends HTMLElement {
                 font-family: 'Playfair Display', serif;
                 font-size: 20px;
                 font-weight: 600;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 12px;
+                gap: 10px;
             }
-            .logo-img { height: 24px; width: auto; }
+            .logo-img { height: 22px; width: auto; }
+            .logo-text { display: flex; align-items: center; gap: 2px; }
             .logo .noir { color: var(--text-primary) !important; }
             .logo .brew { color: var(--primary-gold) !important; }
 
             .desktop-controls, .desktop-btns { display: flex; align-items: center; gap: 24px; }
             
+            /* --- RTL Toggle Style --- */
+            .rtl-btn { font-family: 'Inter', sans-serif; }
+            .rtl-label {
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                min-width: 28px;
+                text-align: center;
+            }
+            html[dir="rtl"] .rtl-label { content: ''; }
+            html[dir="rtl"] .rtl-label::after { content: 'LTR'; }
+            html[dir="ltr"] .rtl-label::after { content: ''; }
+            html:not([dir]) .rtl-label::after { content: ''; } 
+            
+            /* Logic for the label text swap */
+            .rtl-label { visibility: hidden; position: relative; }
+            .rtl-label::before { 
+                visibility: visible; 
+                position: absolute; 
+                inset: 0;
+                content: 'RTL';
+            }
+            html[dir="rtl"] .rtl-label::before { content: 'LTR'; }
             /* --- Mobile Sidenav Styles --- */
             .mobile-overlay {
                 position: fixed;
@@ -256,7 +293,38 @@ class SiteHeader extends HTMLElement {
                 display: block;
                 text-align: left;
             }
-            .sidebar-nav a.active { color: var(--primary-gold); }
+            .sidebar-nav a.active { 
+                color: var(--primary-gold) !important;
+                font-weight: 600;
+            }
+
+            .nav-links a.active {
+                color: var(--primary-gold) !important;
+                opacity: 1 !important;
+                position: relative;
+            }
+
+            .nav-links a.active i {
+                color: var(--primary-gold) !important;
+            }
+
+            /* Premium Underline Indicator for Top-Level Active Links */
+            .nav-links > ul > li > a.active::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: var(--primary-gold);
+                transform-origin: left;
+                animation: lineGrow 0.4s ease forwards;
+            }
+
+            @keyframes lineGrow {
+                from { transform: scaleX(0); }
+                to { transform: scaleX(1); }
+            }
 
             .sidebar-footer {
                 padding: 40px 30px;

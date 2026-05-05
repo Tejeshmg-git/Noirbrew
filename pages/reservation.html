@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/light/style.css">
     <!-- Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+
     <link rel="stylesheet" href="../assets/css/pages.css">
     <link rel="stylesheet" href="../assets/css/light-mode.css">
 </head>
@@ -266,12 +266,6 @@
             <div class="container">
                 <div class="access-hero-card glass-card animate-on-scroll">
                     <div class="access-content-v4">
-                        <div class="access-left-v4" style="background: url('../assets/images/reservation/NFC-ACCESS%20CARD.jpg') center/cover no-repeat;">
-                            <div class="access-token-visual">
-                                <i class="ph-light ph-barcode"></i>
-                                <span class="token-id">NR-990-26</span>
-                            </div>
-                        </div>
                         <div class="access-right-v4">
                             <span class="section-tag section-tag-pill">Final Step</span>
                             <h2 class="ritual-h2">The Physical <span class="gold-text">Key</span></h2>
@@ -287,11 +281,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="access-left-v4" style="background: url('../assets/images/reservation/NFC-ACCESS%20CARD.jpg') center/cover no-repeat;">
+                            <div class="access-token-visual">
+                                <i class="ph-light ph-barcode"></i>
+                                <span class="token-id">NR-990-26</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    
+    <!-- Toast Notification -->
+    <div id="reservation-toast" class="noir-toast">
+        <i class="ph ph-check-circle toast-icon"></i>
+        <span>Ritual Calibrated. Your sanctuary awaits.</span>
+    </div>
 
     <!-- Global Footer -->
     <site-footer base-path="../"></site-footer>
@@ -308,6 +314,24 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Handle Finalize Ritual Button
+        const ritualForm = document.querySelector('.ribbon-form');
+        const toast = document.getElementById('reservation-toast');
+
+        if (ritualForm) {
+            ritualForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Show Toast
+                toast.classList.add('active');
+                
+                // Hide after 4 seconds
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                }, 4000);
+            });
+        }
     </script>
 </body>
 </html>

@@ -102,7 +102,54 @@
 }
 
 @media (max-width: 1024px) {
-    .floating-card { display: none; }
+    .pro-scroll-hint { display: none !important; }
+    .about-hero, .pro-hero-v2, .tea-hero {
+        min-height: auto !important;
+        height: auto !important;
+        padding: 160px 0 80px !important;
+        margin-top: -100px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .about-hero .container, .tea-hero .container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    .brand-philosophy, .tea-hero-text {
+        max-width: 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+    .about-hero .hero-actions, .hero-ctas-v2 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 16px !important;
+        margin: 40px auto 0 !important;
+    }
+    .about-hero .hero-actions .btn, .hero-ctas-v2 .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 /* === ABOUT PAGE: CTA Visual Reconstruction === */
@@ -816,28 +863,61 @@
     100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-@media (max-width: 991px) {
-    .upgrade-layout { flex-direction: column; text-align: center; }
-    .meditation-offset-frame { display: none; }
-    .meditation-hero-text { align-items: center; display: flex; flex-direction: column; }
-    .breath-heading .h1-primary-gold { font-size: 44px; }
-    .heading-underline-gold { margin: 0 auto 32px; }
-    .ritual-spec-ribbon { justify-content: center; flex-wrap: wrap; }
-    .meditation-hero-ctas { justify-content: center; }
-    .meditation-hero { min-height: 70vh; padding: 100px 0 60px; }
+@media (max-width: 1200px) {
+    .upgrade-layout {
+        gap: 40px;
+        padding: 0 20px;
+    }
+    .meditation-offset-frame {
+        margin-right: 0;
+        max-width: 400px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .meditation-hero {
+        min-height: auto;
+        padding: 160px 0 80px;
+    }
+    .upgrade-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+    }
+    .meditation-hero-text {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .meditation-offset-frame {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        height: 450px;
+    }
+    .frame-inner {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .breath-heading .h1-secondary { font-size: 24px; letter-spacing: 4px; }
+    .breath-heading .h1-primary-gold { font-size: 38px; }
+    .meditation-hero-subtext { font-size: 15px; padding: 0 10px; }
+    .ritual-spec-ribbon { justify-content: center; gap: 15px; font-size: 10px; }
 }
 
 @media (max-width: 560px) {
-    .meditation-hero { min-height: auto; padding: 120px 0 40px; }
-    .breath-heading .h1-secondary { font-size: 20px; letter-spacing: 3px; }
-    .breath-heading .h1-primary-gold { font-size: 30px; }
-    .breath-heading { margin-bottom: 20px; }
-    .meditation-hero-subtext { font-size: 14px; margin-bottom: 28px; }
-    .ritual-spec-ribbon { flex-direction: column; gap: 10px; margin-bottom: 32px; font-size: 10px; }
-    .ritual-spec-ribbon .dot-sep { width: 5px; height: 5px; }
-    .meditation-hero-ctas { width: 100%; }
+    .meditation-hero { padding: 120px 0 60px; }
+    .breath-heading .h1-secondary { font-size: 18px; letter-spacing: 2px; }
+    .breath-heading .h1-primary-gold { font-size: 28px; }
+    .meditation-hero-subtext { font-size: 14px; margin-bottom: 30px; }
+    .ritual-spec-ribbon { flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .meditation-hero-ctas { width: 100%; padding: 0 20px; }
     .meditation-hero-ctas .btn { width: 100%; justify-content: center; }
-    .guided-entry-hint { display: none; }
+    .meditation-offset-frame { height: 320px; }
 }
 
 .silence-perks {
@@ -1131,7 +1211,19 @@
 
 
 /* === Reservation Page Specifics === */
+.selection-section,
+.calibration-form-section,
+.concierge-editorial,
+.sensory-strip-section,
+.etiquette-section,
+.noir-access-section {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
 .reservation-hero {
+    padding-top: 100px !important;
+    padding-bottom: 30px !important;
     height: 60vh;
     display: flex;
     align-items: center;
@@ -1161,7 +1253,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-    margin-top: 80px;
+    margin-top: 48px;
 }
 
 .path-card-v2 {
@@ -1174,6 +1266,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .path-card-v2:hover {
@@ -1184,15 +1278,20 @@
 
 .path-status-badge {
     position: absolute;
-    top: 10px;
-    right: 48px;
+    top: -16px; /* Centered on the top border line */
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--primary-gold);
-    padding: 10px 10px;
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 8px 20px;
+    background: #0a0a0a !important; /* Solid opaque background to mask the border */
+    border: 1px solid rgba(212, 175, 55, 0.6); /* Slightly more prominent border */
     border-radius: 20px;
+    white-space: nowrap;
+    z-index: 5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow to add depth over the card */
 }
 
 .path-icon { font-size: 40px; color: var(--primary-gold); margin-bottom: 40px; opacity: 0.8; }
@@ -1216,7 +1315,7 @@
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
 }
 
 .ribbon-header {
@@ -1485,9 +1584,12 @@
         padding: 28px 20px !important;
     }
     .path-status-badge {
-        position: static !important;
-        display: inline-block;
-        margin-bottom: 12px;
+        position: relative !important;
+        display: table !important;
+        margin: -10px auto 16px !important;
+        top: 0 !important;
+        left: auto !important;
+        transform: none !important;
     }
 
     /* Sanctuary Creed: remove extra space */
@@ -1587,7 +1689,7 @@
     grid-template-columns: 1fr 2fr;
     gap: 80px;
     align-items: flex-start;
-    padding: 100px 0;
+    padding: 0;
 }
 
 .sens-v-heading {
@@ -1689,7 +1791,7 @@
 
 .access-hero-card { padding: 0; overflow: hidden; }
 
-.access-content-v4 { display: grid; grid-template-columns: 1fr 1.5fr; }
+.access-content-v4 { display: grid; grid-template-columns: 1.5fr 1fr; }
 
 .access-left-v4 {
  background: #000;
@@ -1697,7 +1799,7 @@
  align-items: center;
  justify-content: center;
  position: relative;
- min-height: 480px;
+ min-height: 400px;
 }
 
 .access-left-v4::after {
@@ -2492,7 +2594,17 @@ body.light-mode .auth-toggle-btn .light-icon {
     opacity: 1;
 }
 
-.hero-micro-specs span { white-space: nowrap; }
+.hero-micro-specs span {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-micro-specs span i {
+    font-size: 16px;
+    color: var(--primary-gold);
+}
 
 .dot-sep {
     width: 8px; height: 8px;
@@ -2571,7 +2683,61 @@ body.light-mode .auth-toggle-btn .light-icon {
     .pro-hero-layout { flex-direction: column; text-align: center; justify-content: center; }
     .hero-micro-specs { justify-content: center; flex-wrap: wrap; }
     .hero-ctas-v2 { justify-content: center; }
-    .pro-floating-card { display: none; }
+
+    /* Floating card: premium glass layout on tablet/mobile */
+    .pro-floating-card {
+        position: relative;
+        margin: 40px auto 0;
+        width: calc(100% - 40px);
+        max-width: 500px;
+        animation: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 25px 20px;
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+    }
+
+    .pro-floating-card .card-stat {
+        margin: 0;
+        flex: 1;
+    }
+
+    .pro-floating-card .card-divider {
+        width: 1px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0;
+    }
+
+    .pro-floating-card .card-tag {
+        margin-top: 0;
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .pro-floating-card {
+        flex-direction: column;
+        max-width: 280px;
+        gap: 20px;
+        padding: 35px 20px;
+    }
+
+    .pro-floating-card .card-divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    .pro-floating-card .stat-num {
+        font-size: 28px;
+    }
 }
 
 /* === Global Page Mobile Refinements === */
@@ -2921,4 +3087,51 @@ body.light-mode .auth-toggle-btn .light-icon {
 .entry-text {
     font-size: 6px;
 }
+}
+
+/* === Toast Notification System === */
+.noir-toast {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid var(--primary-gold);
+    color: #EDEDED !important; /* Force light text on dark toast background */
+    padding: 20px 32px;
+    border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+}
+
+.noir-toast.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.noir-toast .toast-icon {
+    color: var(--primary-gold) !important; /* Higher specificity to beat light-mode.css overrides */
+    font-size: 20px;
+}
+
+@media (max-width: 560px) {
+    .noir-toast {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        padding: 16px 20px;
+        font-size: 13px;
+        justify-content: center;
+    }
 }
