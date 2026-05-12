@@ -56,7 +56,7 @@ class SiteHeader extends HTMLElement {
                         <!-- Desktop Buttons -->
                         <div class="desktop-btns">
                             <a href="${teaLink}" class="btn btn-secondary">Explore Tea</a>
-                            <a href="${loginLink}" class="btn btn-primary">Book Now</a>
+                            <a href="${loginLink}" class="btn btn-primary">Login</a>
                         </div>
 
                         <!-- Mobile Hamburger -->
@@ -101,7 +101,7 @@ class SiteHeader extends HTMLElement {
                     </div>
                     <div class="sidebar-btns">
                         <a href="${teaLink}" class="btn btn-secondary w-100">Explore Tea</a>
-                        <a href="${loginLink}" class="btn btn-primary w-100">Book Now</a>
+                        <a href="${loginLink}" class="btn btn-primary w-100">Login</a>
                     </div>
                 </div>
             </aside>

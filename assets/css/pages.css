@@ -2293,6 +2293,34 @@
     transition: all 0.3s ease;
 }
 
+.auth-toggle-btn.auth-rtl-btn {
+    width: auto !important;
+    padding: 0 12px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.rtl-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    min-width: 28px;
+    text-align: center;
+    display: inline-block;
+    visibility: hidden;
+    position: relative;
+}
+
+.rtl-label::before { 
+    visibility: visible; 
+    position: absolute; 
+    inset: 0;
+    content: 'RTL';
+}
+
+html[dir="rtl"] .rtl-label::before { content: 'LTR'; }
+
 .auth-toggle-btn:hover {
     background: rgba(255, 255, 255, 0.06);
     color: #ffffff;
