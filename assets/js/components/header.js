@@ -11,6 +11,7 @@ class SiteHeader extends HTMLElement {
         const teaLink = `${pagesBase}tea.html`;
         const meditationLink = `${pagesBase}meditation.html`;
         const reservationLink = `${pagesBase}reservation.html`;
+        const loginLink = `${pagesBase}login.html`;
         const contactLink = `${pagesBase}contact.html`;
 
         this.innerHTML = `
@@ -55,7 +56,7 @@ class SiteHeader extends HTMLElement {
                         <!-- Desktop Buttons -->
                         <div class="desktop-btns">
                             <a href="${teaLink}" class="btn btn-secondary">Explore Tea</a>
-                            <a href="${reservationLink}#form" class="btn btn-primary">Book Now</a>
+                            <a href="${loginLink}" class="btn btn-primary">Book Now</a>
                         </div>
 
                         <!-- Mobile Hamburger -->
@@ -100,7 +101,7 @@ class SiteHeader extends HTMLElement {
                     </div>
                     <div class="sidebar-btns">
                         <a href="${teaLink}" class="btn btn-secondary w-100">Explore Tea</a>
-                        <a href="${reservationLink}#form" class="btn btn-primary w-100">Book Now</a>
+                        <a href="${loginLink}" class="btn btn-primary w-100">Book Now</a>
                     </div>
                 </div>
             </aside>

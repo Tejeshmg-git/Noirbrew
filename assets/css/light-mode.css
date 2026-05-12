@@ -245,9 +245,22 @@ body.light-mode .sourcing-v2-stat-value {
 i, .ph { color: var(--text-primary) !important; }
 .hero i, .live-telemetry i { color: #ffffff !important; }
 
+
 /* 🔐 AUTH PAGE LIGHT MODE OVERRIDES */
 body.light-mode.auth-body {
     background: radial-gradient(circle at center, #f0f0f0, #ffffff) !important;
+}
+
+body.light-mode .form-group-auth label {
+    color: #000000 !important;
+    opacity: 1 !important;
+    font-weight: 500;
+}
+
+body.light-mode .remember-me span,
+body.light-mode .terms-v2 span {
+    color: #000000 !important;
+    opacity: 1 !important;
 }
 
 body.light-mode .auth-card.glass-card {

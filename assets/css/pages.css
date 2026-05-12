@@ -701,8 +701,8 @@
 
 /* === Meditation Experience Page Specifics === */
 .meditation-hero { 
-    min-height: 85vh; /* Adjusted for flow */
-    padding: var(--section-padding-large) 0 var(--section-padding); /* Essential vertical space */
+    min-height: 75vh; /* Reduced from 85vh */
+    padding: 80px 0 var(--section-padding); /* Reduced upper gap */
     position: relative; 
     overflow: hidden; 
 }
@@ -1222,9 +1222,9 @@
 }
 
 .reservation-hero {
-    padding-top: 100px !important;
+    padding-top: 60px !important;
     padding-bottom: 30px !important;
-    height: 60vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2146,9 +2146,9 @@
     width: 100%;
 }
 
-.auth-logo { width: 32px; height: auto; margin-bottom: 24px; }
+.auth-header { text-align: center; margin-bottom: 40px; }
 
-.auth-subtitle { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-top: 12px; }
+.auth-subtitle { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-top: 12px; text-align: center; }
 
 .social-auth-grid {
     display: grid;
@@ -2247,7 +2247,7 @@
 
 .gold-link:hover { color: #fff; text-decoration-color: #fff; }
 
-.auth-footer { margin-top: 32px; font-size: 12px; color: var(--text-secondary); }
+.auth-footer { margin-top: 32px; font-size: 12px; color: var(--text-secondary); text-align: center; }
 
 /* === Auth Page Toggle Bar (Theme + RTL) === */
 .auth-toggles {
@@ -2539,12 +2539,12 @@ body.light-mode .auth-toggle-btn .light-icon {
 
 /* === PRO LEVEL TEA HERO === */
 .pro-hero-v2 {
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 140px 0 100px;
+    padding: 80px 0 60px;
 }
 
 .pro-hero-layout {
